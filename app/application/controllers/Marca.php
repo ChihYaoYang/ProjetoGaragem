@@ -77,6 +77,52 @@ class Marca extends CI_Controller {
         redirect('Marca/index');
     }
 
+    //Update
+    public function alteracao($id) {
+        $data['marca'] = $this->Marca_model->getId($id);
+        $this->load->view('includes/header');
+        $this->load->view('marca/alterar', $data);
+        $this->load->view('includes/footer');
+    }
+
+    public function alterar($id) {
+        if ($id > 0) {
+            $this->form_validation->set_rules('marca', 'marca', 'required|is_unique[tb_marca.tx_nome]');
+            if ($this->form_validation->run() == false) {
+                $this->alteracao($id);
+            } else {
+                $data = array(
+                    //Nome da DB
+                    'tx_nome' => $this->input->post('marca'),
+                );
+                //IMG
+                if (!empty($_FILES['imagem']['name']) || $_FILES['imagem']['name'] == '') {
+                    $config['upload_path'] = './public/uploads/marca';
+                    $config['allowed_types'] = 'gif|jpg|png';
+                    $config['max_size'] = 100;
+                    $config['max_width'] = 1024;
+                    $config['max_height'] = 768;
+                    $config['encrypt_name'] = true;
+                    $this->load->library('upload', $config);
+                    if (!$this->upload->do_upload('imagem')) {
+                        $this->session->set_flashdata('mensagem', '<div class="alert alert-danger"><i class="fas fa-times"></i> Erro ao Cadastra Imagem *_*<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>' . $this->upload->display_errors());
+                        redirect('Marca/cadastrar');
+                        exit();
+                    } else {
+                        $data['imagem'] = $this->upload->data()['file_name'];
+                    }
+                }
+                if ($this->Equipe_model->update($id, $data)) {
+                    $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Equipe Alterado com Sucesso ! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
+                    redirect('Marca/index');
+                } else {
+                    $this->session->set_flashdata('mensagem', '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Equipe não sofreu Alterações<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
+                    redirect('Marca/index');
+                }
+            }
+        }
+    }
+
 }
 
 ?>

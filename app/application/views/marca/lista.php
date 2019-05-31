@@ -33,7 +33,7 @@
                                 //Nome da DB
                                 echo '<td>' . $m->tx_nome . '</td>';
                                 echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Marca/deletar/' . $m->id_marca) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
-                                '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Marca/alterar/' . $m->id_marca) . '"><i class="fas fa-edit"></i> Alterar</a>'
+                                '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Marca/alteracao/' . $m->id_marca) . '"><i class="fas fa-edit"></i> Alterar</a>'
                                 . '</td>';
                                 echo '</tr>';
                             }
