@@ -19,6 +19,7 @@
                     <hr>
                     <thead>
                         <tr class="text-center">
+                            <th scope="col">Imagem</th>
                             <th scope="col">Marca</th>
                             <th scope="col">Opção</th>
                         </tr>
@@ -28,8 +29,12 @@
                         if (count($marca) > 0) {
                             foreach ($marca as $m) {
                                 echo '<tr class="text-center">';
-                                               //Nome da DB
+                                echo '<td><img src="' . base_url('public/uploads/marca/' . $m->imagem) . '" width="50"></td>';
+                                //Nome da DB
                                 echo '<td>' . $m->tx_nome . '</td>';
+                                echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Marca/deletar/' . $m->id_marca) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
+                                '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Marca/alterar/' . $m->id_marca) . '"><i class="fas fa-edit"></i> Alterar</a>'
+                                . '</td>';
                                 echo '</tr>';
                             }
                         } else {

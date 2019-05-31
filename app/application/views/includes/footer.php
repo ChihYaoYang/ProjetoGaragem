@@ -47,7 +47,32 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<script>
+    //Show name Image
+    $('input[type="file"]').change(function (e) {
+        e.preventDefault();
+        var fileName = e.target.files[0].name;
+        $('.custom-file-label').html(fileName);
+    });
+    //Pré Visualizar
+    $(function () {
+        $("#imagem").change(function () {
+            // 若有選取檔案
+            if (this.files && this.files[0]) {
+                //Cria variável, Usa função FileReader(檔案讀取器) 來讀取使用者選取電腦中的檔案
+                var reader = new FileReader();
+                // 當讀取成功後會觸發的事情
+                reader.onload = function (e) {
+                    //e.target.result 物件，是使用者的檔案被 FileReader 轉換成 base64 的字串格式，
+                    // 在這裡我們選取圖檔，所以轉換出來的，會是如 『data:image/jpeg;base64,.....』這樣的字串樣式。
+                    $('#view').attr('src', e.target.result);
+                };
+                //讀取檔案
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+    });
+</script>
 </body>
 
 </html>

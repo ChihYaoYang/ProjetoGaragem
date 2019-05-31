@@ -29,7 +29,8 @@ class Marca_model extends CI_model {
     public function delete($id) {
         //Valida
         if ($id > 0) {
-            $this->db->where('id', $id);
+                           //Nome do DB
+            $this->db->where('id_marca', $id);
             $this->db->delete(self::table);
             return $this->db->affected_rows();
         } else {
@@ -39,7 +40,7 @@ class Marca_model extends CI_model {
 
     //update
     public function getId($id) {
-        $this->db->where('id', $id);
+        $this->db->where('id_marca', $id);
         $query = $this->db->get(self::table);
         return $query->row(0);
     }
