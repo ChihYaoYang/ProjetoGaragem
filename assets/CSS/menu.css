@@ -39,6 +39,10 @@
     .side-collapse-right.in {
         width: 0;
     }
+    .offset-2,
+    .offset-1 {
+        margin-left: 0px;
+    }
 }
 
 .dropdown:hover .dropdown-menu {
