@@ -1,0 +1,47 @@
+.navbar-dark .navbar-nav .nav-link {
+    padding: .5rem 1rem;
+}
+
+.active {
+    background-color: #f9ca24;
+    border-radius: 15px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff;
+}
+
+.menu a:hover {
+    background-color: #686de0;
+    color: #ffffff !important;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .side-collapse-container-right {
+        position: relative;
+        right: 0;
+        transition: right .4s;
+    }
+    .side-collapse-container-right.out {
+        right: 70%;
+    }
+    .side-collapse-right {
+        background-color: #7ed6df;
+        top: 100px;
+        bottom: 0;
+        right: 0;
+        width: 70%;
+        position: fixed;
+        overflow: hidden;
+        transition: width .4s;
+    }
+    .side-collapse-right.in {
+        width: 0;
+    }
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}

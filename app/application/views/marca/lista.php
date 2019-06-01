@@ -2,7 +2,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Lista de Marca</li>
+            <li class="breadcrumb-item" aria-current="page">Lista de Marca</li>
         </ol>
     </nav>
     <div class="row">
@@ -32,13 +32,13 @@
                                 echo '<td><img src="' . base_url('public/uploads/marca/' . $m->imagem) . '" width="50"></td>';
                                 //Nome da DB
                                 echo '<td>' . $m->tx_nome . '</td>';
-                                echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Marca/deletar/' . $m->id_marca) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
-                                '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Marca/alteracao/' . $m->id_marca) . '"><i class="fas fa-edit"></i> Alterar</a>'
+                                echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Marca/deletar/' . $m->id) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
+                                '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Marca/alterar/' . $m->id) . '"><i class="fas fa-edit"></i> Alterar</a>'
                                 . '</td>';
                                 echo '</tr>';
                             }
                         } else {
-                            echo '<tr><td colspan="2">Nenhum Marca cadastrado</td></tr>';
+                            echo '<tr><td colspan="3">Nenhum Marca cadastrado</td></tr>';
                         }
                         ?>
                     </tbody>

@@ -1,16 +1,19 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Marca extends CI_Controller {
+class Marca extends CI_Controller
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Marca_model');
     }
 
     //Read
-    public function index() {
+    public function index()
+    {
         $data['marca'] = $this->Marca_model->getAll();
         $data['total'] = $this->Marca_model->countrow();
         $this->load->view('includes/header');
@@ -19,13 +22,15 @@ class Marca extends CI_Controller {
     }
 
     //Create
-    public function cadastro() {
+    public function cadastro()
+    {
         $this->load->view('includes/header');
         $this->load->view('marca/cadastro');
         $this->load->view('includes/footer');
     }
 
-    public function cadastrar() {
+    public function cadastrar()
+    {
         $this->form_validation->set_rules('marca', 'marca', 'required|is_unique[tb_marca.tx_nome]');
         if ($this->form_validation->run() == false) {
             $this->cadastro();
@@ -63,7 +68,8 @@ class Marca extends CI_Controller {
     }
 
     //Delete
-    public function deletar($id) {
+    public function deletar($id)
+    {
         $get = $this->Marca_model->getId($id);
         //Valida
         if ($id > 0) {
@@ -78,16 +84,18 @@ class Marca extends CI_Controller {
     }
 
     //Update
-    public function alteracao($id) {
+    public function alteracao($id)
+    {
         $data['marca'] = $this->Marca_model->getId($id);
         $this->load->view('includes/header');
         $this->load->view('marca/alterar', $data);
         $this->load->view('includes/footer');
     }
 
-    public function alterar($id) {
+    public function alterar($id)
+    {
         if ($id > 0) {
-            $this->form_validation->set_rules('marca', 'marca', 'required|is_unique[tb_marca.tx_nome]');
+            $this->form_validation->set_rules('marca', 'marca', 'required');
             if ($this->form_validation->run() == false) {
                 $this->alteracao($id);
             } else {
@@ -96,7 +104,7 @@ class Marca extends CI_Controller {
                     'tx_nome' => $this->input->post('marca'),
                 );
                 //IMG
-                if (!empty($_FILES['imagem']['name']) || $_FILES['imagem']['name'] == '') {
+                if (!empty($_FILES['imagem']['name'])) {
                     $config['upload_path'] = './public/uploads/marca';
                     $config['allowed_types'] = 'gif|jpg|png';
                     $config['max_size'] = 100;
@@ -106,23 +114,24 @@ class Marca extends CI_Controller {
                     $this->load->library('upload', $config);
                     if (!$this->upload->do_upload('imagem')) {
                         $this->session->set_flashdata('mensagem', '<div class="alert alert-danger"><i class="fas fa-times"></i> Erro ao Cadastra Imagem *_*<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>' . $this->upload->display_errors());
-                        redirect('Marca/cadastrar');
+                        redirect('Marca/alteracao');
                         exit();
                     } else {
                         $data['imagem'] = $this->upload->data()['file_name'];
+                        $actualimage = $this->Marca_model->getId($id)->imagem;
+                        if (!empty($actualimage) && file_exists('./public/uploads/marca/' . $actualimage)) {
+                            unlink('./public/uploads/marca/' . $actualimage);
+                        }
                     }
                 }
-                if ($this->Equipe_model->update($id, $data)) {
-                    $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Equipe Alterado com Sucesso ! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
+                if ($this->Marca_model->update($id, $data)) {
+                    $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Marca Alterado com Sucesso ! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
                     redirect('Marca/index');
                 } else {
-                    $this->session->set_flashdata('mensagem', '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Equipe não sofreu Alterações<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
+                    $this->session->set_flashdata('mensagem', '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Marca não sofreu Alterações<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
                     redirect('Marca/index');
                 }
             }
         }
     }
-
 }
-
-?>

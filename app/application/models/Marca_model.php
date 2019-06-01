@@ -15,7 +15,7 @@ class Marca_model extends CI_model {
     }
     //count
     public function countrow() {
-        $query = $this->db->query('SELECT id_marca FROM tb_marca');
+        $query = $this->db->query('SELECT id FROM tb_marca');
         return $query->num_rows();
     }
 
@@ -30,7 +30,7 @@ class Marca_model extends CI_model {
         //Valida
         if ($id > 0) {
                            //Nome do DB
-            $this->db->where('id_marca', $id);
+            $this->db->where('id', $id);
             $this->db->delete(self::table);
             return $this->db->affected_rows();
         } else {
@@ -40,7 +40,7 @@ class Marca_model extends CI_model {
 
     //update
     public function getId($id) {
-        $this->db->where('id_marca', $id);
+        $this->db->where('id', $id);
         $query = $this->db->get(self::table);
         return $query->row(0);
     }
@@ -56,5 +56,3 @@ class Marca_model extends CI_model {
     }
 
 }
-
-?>
