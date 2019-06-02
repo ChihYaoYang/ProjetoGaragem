@@ -22,7 +22,7 @@
                         <div>
                             <label for="marca">Marca</label>
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="marca" name="marca" value="<?= isset($marca) ? $marca->tx_nome : ''; ?>">
+                                <input type="text" class="form-control" id="marca" name="marca" value="<?= isset($marca) ? $marca->nome : ''; ?>">
                             </div>
                         </div>
                         <!--Campo file-->

@@ -9,6 +9,8 @@ class Marca extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Marca_model');
+        $this->load->model('Usuario_model');
+        $this->Usuario_model->verificaLogin();
     }
 
     //Read
@@ -31,13 +33,13 @@ class Marca extends CI_Controller
 
     public function cadastrar()
     {
-        $this->form_validation->set_rules('marca', 'marca', 'required|is_unique[tb_marca.tx_nome]');
+        $this->form_validation->set_rules('marca', 'marca', 'required|is_unique[tb_marca.nome]');
         if ($this->form_validation->run() == false) {
             $this->cadastro();
         } else {
             $data = array(
                 //Nome da DB
-                'tx_nome' => $this->input->post('marca'),
+                'nome' => $this->input->post('marca'),
             );
             //IMG
             if (!empty($_FILES['imagem']['name']) || $_FILES['imagem']['name'] == '') {
@@ -101,7 +103,7 @@ class Marca extends CI_Controller
             } else {
                 $data = array(
                     //Nome da DB
-                    'tx_nome' => $this->input->post('marca'),
+                    'nome' => $this->input->post('marca'),
                 );
                 //IMG
                 if (!empty($_FILES['imagem']['name'])) {

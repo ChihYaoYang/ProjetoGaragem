@@ -10,6 +10,7 @@ class Marca_model extends CI_model {
 
     //Read
     public function getAll() {
+        $this->db->order_by('nome', 'ASC');
         $query = $this->db->get(self::table);
         return $query->result();
     }
