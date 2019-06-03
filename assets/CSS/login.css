@@ -11,6 +11,12 @@ body {
     font-weight: 500;
 }
 
+.box h2 {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
 .box input[type="text"],
 .box input[type="email"],
 .box input[type="password"] {

@@ -46,7 +46,7 @@ class Usuario extends CI_Controller {
     //Insert
     public function cadastrar() {
         $this->form_validation->set_rules('nome', 'nome', 'required|is_unique[tb_usuario.nome]|max_length[50]');
-        $this->form_validation->set_rules('email', 'email', 'required|valid_email|valid_emails|is_unique[tb_usuario.email]');
+        $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|is_unique[tb_usuario.email]');
         $this->form_validation->set_rules('senha', 'senha', 'required|min_length[6]|max_length[20]');
         if ($this->form_validation->run() == false) {
             //Se for false carrega marca de novo e preencher todos campos

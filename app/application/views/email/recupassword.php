@@ -18,20 +18,17 @@
         <div class="card mx-auto box" style="max-width: 450px; background: #000000;">
             <a class="btn btn-light back" href="<?= base_url() . 'Usuario/login' ?>"><i class="fas fa-arrow-left"></i> Back</a>
             <br>
-            <h1 class="text-uppercase text-center"><i class="fas fa-user-edit"></i> Register</h1>
+            <h2 class="text-uppercase text-center"><i class="far fa-envelope"></i> Forgot password ?</h2>
             <div class="card-body">
                 <?php
                 //Mensagem
                 echo ($this->session->flashdata('mensagem')) ? $this->session->flashdata('mensagem') : '';
                 ?>
                 <?php echo validation_errors() ?>
-                <form method="POST" action="">
-                    <input type="text" name="nome" id="nome" placeholder="Digite seu Username" value="<?php echo set_value('nome') ?>" required="" pattern=".{0,50}">
-                    <input type="email" name="email" id="email" placeholder="Digite seu Email" value="<?php echo set_value('email') ?>" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
-                    <input type="password" name="senha" id="senha" placeholder="Digite seu Password" value="<?php echo set_value('senha') ?>" required="" pattern=".{6,20}">
+                <form method="POST" action="" enctype="multipart/form-data">
+                    <input type="email" name="email" id="email" placeholder="Digite seu Email" value="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required="">
                     <div class="text-center">
-                        <button type="submit">Cadastra</button>
-                        <button type="reset">Limpar</button>
+                        <button type="submit">Enviar</button>
                     </div>
                 </form>
 
