@@ -2,15 +2,13 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Recupassword extends CI_Controller
-{
+class Recupassword extends CI_Controller {
 
-    public function index()
-    {
+    public function index() {
         $this->load->view('email/recupassword');
     }
-    public function sendmail()
-    {
+
+    public function sendmail() {
         $this->form_validation->set_rules('email', 'email', 'required');
         if ($this->form_validation->run() == false) {
             $this->index();
@@ -19,10 +17,9 @@ class Recupassword extends CI_Controller
             $config['mailpath'] = '/usr/sbin/sendmail';
             $config['charset'] = 'iso-8859-1';
             $config['wordwrap'] = TRUE;
-
             $this->email->initialize($config);
-            $from_email = "chih.yang@aluno.sc.senac.br";
-            $this->email->from($from_email, 'Admin');
+
+            $this->email->from('chih.yang@aluno.sc.senac.br', 'Admin');
             $this->email->to($this->input->post('email'));
             $this->email->subject('Send Email Codeigniter');
             $this->email->message('The email send using codeigniter library');
@@ -37,4 +34,5 @@ class Recupassword extends CI_Controller
             }
         }
     }
+
 }

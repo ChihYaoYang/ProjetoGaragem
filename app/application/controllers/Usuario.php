@@ -1,14 +1,19 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Usuario extends CI_Controller {
+
     public function index() {
         $this->load->view('login/login');
     }
+
     //Construct
     public function __construct() {
         parent::__construct();
         $this->load->model('Usuario_model');
     }
+
     public function login() {
         //Validation formulario se cadastra ou não
         $this->form_validation->set_rules('email', 'email', 'required');
@@ -28,6 +33,7 @@ class Usuario extends CI_Controller {
                     'idUsuario' => $usuario->id,
                     'nome' => $usuario->nome,
                     'email' => $usuario->email,
+                    'status' => $usuario->status,
                     'logado' => true
                 );
                 //Mandamos o codeignitter salvar na sessão os dados do usuário
@@ -43,6 +49,7 @@ class Usuario extends CI_Controller {
             }
         }
     }
+
     //Insert
     public function cadastrar() {
         $this->form_validation->set_rules('nome', 'nome', 'required|is_unique[tb_usuario.nome]|max_length[50]');
@@ -68,11 +75,14 @@ class Usuario extends CI_Controller {
             }
         }
     }
+
     //Método responsavel por fazer o logout do sistema destruindo a sessão do usuário
     public function sair() {
         //Apaga todo conteúdo da sessão do usuario
         $this->session->sess_destroy();
         redirect(base_url());
     }
+
 }
+
 ?>

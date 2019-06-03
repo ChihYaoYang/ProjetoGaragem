@@ -14,6 +14,7 @@ class Marca_model extends CI_model {
         $query = $this->db->get(self::table);
         return $query->result();
     }
+
     //count
     public function countrow() {
         $query = $this->db->query('SELECT id FROM tb_marca');
@@ -30,7 +31,7 @@ class Marca_model extends CI_model {
     public function delete($id) {
         //Valida
         if ($id > 0) {
-                           //Nome do DB
+            //Nome do DB
             $this->db->where('id', $id);
             $this->db->delete(self::table);
             return $this->db->affected_rows();

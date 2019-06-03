@@ -1,11 +1,14 @@
 <?php
+
 /**
  * Classe model da tabela usuario do DB
  * @author Yang
  */
 class Usuario_model extends CI_Model {
+
     const password = 'ryanSENAC';
     const table = 'tb_usuario';
+
     //GET_ID
     public function getId($id) {
         $this->db->where('id', $id);
@@ -13,6 +16,7 @@ class Usuario_model extends CI_Model {
         //retorna apenas a primeira linha
         return $query->row(0);
     }
+
     //Método que busca usuario no banco de dados
     //Recebe parametro email e senha
     public function getUsuario($email, $senha) {
@@ -22,6 +26,7 @@ class Usuario_model extends CI_Model {
         $query = $this->db->get(self::table);
         return $query->row(0);
     }
+
     //Insert
     //Passa $data no conttroller como array
     public function insert($data = array()) {
@@ -29,6 +34,7 @@ class Usuario_model extends CI_Model {
         $this->db->insert(self::table, $data);
         return $this->db->affected_rows();
     }
+
     //Método que valida na sessão se o usuário esta logado
     public function verificaLogin() {
         //resgata na sessão o status logado e o id do usuario
@@ -40,4 +46,5 @@ class Usuario_model extends CI_Model {
             redirect(base_url() . 'Usuario/login');
         }
     }
+
 }

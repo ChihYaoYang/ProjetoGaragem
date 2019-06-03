@@ -2,11 +2,9 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Marca extends CI_Controller
-{
+class Marca extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->load->model('Marca_model');
         $this->load->model('Usuario_model');
@@ -14,8 +12,7 @@ class Marca extends CI_Controller
     }
 
     //Read
-    public function index()
-    {
+    public function index() {
         $data['marca'] = $this->Marca_model->getAll();
         $data['total'] = $this->Marca_model->countrow();
         $this->load->view('includes/header');
@@ -24,15 +21,13 @@ class Marca extends CI_Controller
     }
 
     //Create
-    public function cadastro()
-    {
+    public function cadastro() {
         $this->load->view('includes/header');
         $this->load->view('marca/cadastro');
         $this->load->view('includes/footer');
     }
 
-    public function cadastrar()
-    {
+    public function cadastrar() {
         $this->form_validation->set_rules('marca', 'marca', 'required|is_unique[tb_marca.nome]');
         if ($this->form_validation->run() == false) {
             $this->cadastro();
@@ -70,8 +65,7 @@ class Marca extends CI_Controller
     }
 
     //Delete
-    public function deletar($id)
-    {
+    public function deletar($id) {
         $get = $this->Marca_model->getId($id);
         //Valida
         if ($id > 0) {
@@ -86,16 +80,14 @@ class Marca extends CI_Controller
     }
 
     //Update
-    public function alteracao($id)
-    {
+    public function alteracao($id) {
         $data['marca'] = $this->Marca_model->getId($id);
         $this->load->view('includes/header');
         $this->load->view('marca/alterar', $data);
         $this->load->view('includes/footer');
     }
 
-    public function alterar($id)
-    {
+    public function alterar($id) {
         if ($id > 0) {
             $this->form_validation->set_rules('marca', 'marca', 'required');
             if ($this->form_validation->run() == false) {
@@ -136,4 +128,5 @@ class Marca extends CI_Controller
             }
         }
     }
+
 }
