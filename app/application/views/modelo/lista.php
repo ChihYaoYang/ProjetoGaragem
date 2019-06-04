@@ -15,17 +15,6 @@
             <div class="table-responsive">
                 <table class="table table-dark table-bordered">
                     <br>
-                    <!--Dropdown-->
-                    <div class="dropdown">
-                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Automóvel</button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="<?= base_url('Veiculo/index') ?>"><i class="fas fa-list-ul"></i> Lista de Veículo</a>
-                            <a class="dropdown-item" href="<?= base_url('Marca/index') ?>"><i class="fas fa-list-ul"></i> Lista de Marca</a>
-                            <a class="dropdown-item" href="<?= base_url('Modelo/index') ?>"><i class="fas fa-list-ul"></i> Lista de Modelo</a>
-                            <a class="dropdown-item" href="<?= base_url('Cor/index') ?>"><i class="fas fa-list-ul"></i> Lista de Cor</a>
-                        </div>
-                    </div>
-                    <br>
                     <a class="btn btn-success mr-1" href="<?= base_url('Veiculo/cadastrar') ?>"><i class="fas fa-plus"></i> Add Veículo</a>
                     <a class="btn btn-primary mr-1" href="<?= base_url('Marca/cadastrar') ?>"><i class="fas fa-plus"></i> Add Marca</a>
                     <a class="btn btn-info mr-1" href="<?= base_url('Modelo/cadastrar') ?>"><i class="fas fa-plus"></i> Add Modelo</a>
