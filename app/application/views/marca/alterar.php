@@ -2,7 +2,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Alteração de Marca</li>
+            <li class="breadcrumb-item" aria-current="page">Alteração de Marca</li>
         </ol>
     </nav>
     <div class="row">
