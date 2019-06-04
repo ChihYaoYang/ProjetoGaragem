@@ -69,6 +69,11 @@
 <script type='text/javascript' src="<?php echo base_url('/assets/JS/jquery.js'); ?>"></script>
 <!--Menu-->
 <script type='text/javascript' src="<?php echo base_url('/assets/JS/menu.js'); ?>"></script>
+<!--Caousel JS-->
+<script type='text/javascript' src="<?php echo base_url('/assets/JS/carrousel1.js'); ?>"></script>
+<script type='text/javascript' src="<?php echo base_url('/assets/JS/carrousel2.js'); ?>"></script>
+<script type='text/javascript' src="<?php echo base_url('/assets/JS/carrousel3.js'); ?>"></script>
+<script type='text/javascript' src="<?php echo base_url('/assets/JS/carrousel4.js'); ?>"></script>
 </body>
 
 </html>
