@@ -47,4 +47,12 @@ class Usuario_model extends CI_Model {
         }
     }
 
+    //Verifica session
+    public function checkSession() {
+        $status = $this->session->userdata('status');
+        if ($status == 0) {
+            redirect(base_url() . 'Home/index');
+        }
+    }
+
 }

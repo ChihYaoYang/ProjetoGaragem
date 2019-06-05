@@ -9,6 +9,7 @@ class Modelo extends CI_Controller {
         $this->load->model('Modelo_model');
         $this->load->model('Usuario_model');
         $this->Usuario_model->verificaLogin();
+        $this->Usuario_model->checkSession();
     }
 
     //Read

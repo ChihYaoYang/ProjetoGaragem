@@ -9,6 +9,7 @@ class Marca extends CI_Controller {
         $this->load->model('Marca_model');
         $this->load->model('Usuario_model');
         $this->Usuario_model->verificaLogin();
+        $this->Usuario_model->checkSession();
     }
 
     //Read
