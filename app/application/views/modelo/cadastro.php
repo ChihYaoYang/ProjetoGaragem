@@ -18,24 +18,6 @@
                         echo ($this->session->flashdata('mensagem')) ? $this->session->flashdata('mensagem') : '';
                         ?>
                         <input type="hidden" name="id" id="id">
-                        <!--Marca-->
-                        <div>
-                            <label for="id_marca">Marca</label>
-                            <div class="input-group mb-2">
-                                <select id="id_marca" name="id_marca" class="form-control">
-                                    <option value="">Seleciona uma Marca</option>
-                                    <?php
-                                    if (count($marca) > 0) {
-                                        foreach ($marca as $m) {
-                                            echo '<option value="' . $m->id . '"' . set_select('id_marca', $m->id) . '>' . $m->nome . '</option>';
-                                        }
-                                    } else {
-                                        echo '<option value="">Nenhuma Marca cadastrada.</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
                         <!--Modelo-->
                         <div>
                             <label for="modelo">Modelo</label>

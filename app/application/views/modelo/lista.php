@@ -22,7 +22,6 @@
                     <hr>
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Marca</th>
                             <th scope="col">Modelo</th>
                             <th scope="col">Opção</th>
                         </tr>
@@ -32,7 +31,6 @@
                         if (count($modelo) > 0) {
                             foreach ($modelo as $md) {
                                 echo '<tr class="text-center">';
-                                echo '<td>' . $md->nome_marca . '</td>';
                                 echo '<td>' . $md->nome . '</td>';
                                 echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Modelo/deletar/' . $md->id) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
                                 '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Modelo/alterar/' . $md->id) . '"><i class="fas fa-edit"></i> Alterar</a>'
@@ -40,7 +38,7 @@
                                 echo '</tr>';
                             }
                         } else {
-                            echo '<tr><td colspan="3">Nenhum Modelo cadastrado</td></tr>';
+                            echo '<tr><td colspan="2">Nenhum Modelo cadastrado</td></tr>';
                         }
                         ?>
                     </tbody>

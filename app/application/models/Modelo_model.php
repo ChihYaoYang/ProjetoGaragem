@@ -11,11 +11,7 @@ class Modelo_model extends CI_model {
     //Read
     public function getAll() {
         $this->db->order_by('nome', 'ASC');
-        //Fazer join pega dados de equipe
-        $this->db->select('tb_modelo.*, tb_marca.nome as nome_marca');
-        $this->db->from('tb_modelo');
-        $this->db->join('tb_marca', 'tb_marca.id=tb_modelo.cd_marca', 'inner');
-        $query = $this->db->get();
+        $query = $this->db->get(self::table);
         return $query->result();
     }
 

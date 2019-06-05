@@ -7,7 +7,6 @@ class Modelo extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('Modelo_model');
-        $this->load->model('Marca_model');
         $this->load->model('Usuario_model');
         $this->Usuario_model->verificaLogin();
     }
@@ -23,16 +22,12 @@ class Modelo extends CI_Controller {
 
     //Create
     public function cadastro() {
-        //Chama model da Equipe
-        $data['marca'] = $this->Marca_model->getAll();
         $this->load->view('includes/header');
-        $this->load->view('modelo/cadastro', $data);
+        $this->load->view('modelo/cadastro');
         $this->load->view('includes/footer');
     }
 
     public function cadastrar() {
-        //Valida formulario
-        $this->form_validation->set_rules('id_marca', 'marca', 'required');
         $this->form_validation->set_rules('modelo', 'modelo', 'required|max_length[50]|is_unique[tb_modelo.nome]');
         if ($this->form_validation->run() == false) {
             //Se for false chama Form de novo
@@ -40,7 +35,6 @@ class Modelo extends CI_Controller {
         } else {
             //resgata dados pelo post
             $data = array(
-                'cd_marca' => $this->input->post('id_marca'),
                 'nome' => $this->input->post('modelo')
             );
             if ($this->Modelo_model->insert($data)) {
@@ -70,7 +64,6 @@ class Modelo extends CI_Controller {
 
     //Update
     public function alteracao($id) {
-        $data['marca'] = $this->Marca_model->getAll();
         $data['modelo'] = $this->Modelo_model->getId($id);
         $this->load->view('includes/header');
         $this->load->view('modelo/alterar', $data);
@@ -79,13 +72,11 @@ class Modelo extends CI_Controller {
 
     public function alterar($id) {
         if ($id > 0) {
-            $this->form_validation->set_rules('id_marca', 'marca', 'required');
             $this->form_validation->set_rules('modelo', 'modelo', 'required|max_length[50]');
             if ($this->form_validation->run() == false) {
                 $this->alteracao($id);
             } else {
                 $data = array(
-                    'cd_marca' => $this->input->post('id_marca'),
                     'nome' => $this->input->post('modelo')
                 );
                 if ($this->Modelo_model->update($id, $data)) {
