@@ -36,8 +36,8 @@
                             </div>
                         </div>
                         <?php
-                        if (!empty($marca->imagem) && file_exists('./public/uploads/marca/' . $marca->imagem)) {
-                            echo '<img src="' . base_url('./public/uploads/marca/' . $marca->imagem) . '" width="100" height="100">';
+                        if (!empty($marca->imagem) && file_exists('./public/uploads/' . $marca->imagem)) {
+                            echo '<img src="' . base_url('./public/uploads/' . $marca->imagem) . '" width="100" height="100">';
                         }
                         ?>
                         to

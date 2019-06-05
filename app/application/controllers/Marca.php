@@ -38,7 +38,7 @@ class Marca extends CI_Controller {
             );
             //IMG
             if (!empty($_FILES['imagem']['name']) || $_FILES['imagem']['name'] == '') {
-                $config['upload_path'] = './public/uploads/marca';
+                $config['upload_path'] = './public/uploads';
                 $config['allowed_types'] = 'gif|jpg|png';
                 $config['max_size'] = 100;
                 $config['max_width'] = 1024;
@@ -57,7 +57,7 @@ class Marca extends CI_Controller {
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Marca Cadastrado com Sucesso! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
                 redirect('Marca/index');
             } else {
-                unlink('./public/uploads/marca' . $data['imagem']);
+                unlink('./public/uploads/' . $data['imagem']);
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-danger"><i class="fas fa-times"></i> Erro ao Cadastrar Marca *_*<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
                 redirect('Marca/cadastro');
             }
@@ -70,7 +70,7 @@ class Marca extends CI_Controller {
         //Valida
         if ($id > 0) {
             if ($this->Marca_model->delete($id)) {
-                unlink('./public/uploads/marca/' . $get->imagem);
+                unlink('./public/uploads/' . $get->imagem);
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Marca Deletado com Sucesso ! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
             } else {
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-danger"><i class="fas fa-times"></i> Erro ao Deletar Marca *_*<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
@@ -99,7 +99,7 @@ class Marca extends CI_Controller {
                 );
                 //IMG
                 if (!empty($_FILES['imagem']['name'])) {
-                    $config['upload_path'] = './public/uploads/marca';
+                    $config['upload_path'] = './public/uploads';
                     $config['allowed_types'] = 'gif|jpg|png';
                     $config['max_size'] = 100;
                     $config['max_width'] = 1024;
@@ -113,8 +113,8 @@ class Marca extends CI_Controller {
                     } else {
                         $data['imagem'] = $this->upload->data()['file_name'];
                         $actualimage = $this->Marca_model->getId($id)->imagem;
-                        if (!empty($actualimage) && file_exists('./public/uploads/marca/' . $actualimage)) {
-                            unlink('./public/uploads/marca/' . $actualimage);
+                        if (!empty($actualimage) && file_exists('./public/uploads/' . $actualimage)) {
+                            unlink('./public/uploads/' . $actualimage);
                         }
                     }
                 }

@@ -25,12 +25,12 @@
                                 <select id="id_marca" name="id_marca" class="form-control">
                                     <option value="">Seleciona uma Marca</option>
                                     <?php
-                                    foreach ($marca as $m) {
-                                        if ($m > 0) {
+                                    if (count($marca) > 0) {
+                                        foreach ($marca as $m) {
                                             echo '<option value="' . $m->id . '"' . set_select('id_marca', $m->id) . '>' . $m->nome . '</option>';
-                                        } else {
-                                            echo '<option value="">Nenhuma Marca cadastrada.</option>';
                                         }
+                                    } else {
+                                        echo '<option value="">Nenhuma Marca cadastrada.</option>';
                                     }
                                     ?>
                                 </select>
