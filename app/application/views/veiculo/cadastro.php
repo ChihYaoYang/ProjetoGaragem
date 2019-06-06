@@ -79,14 +79,14 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">R$</div>
                                 </div>
-                                <input type="text" class="form-control" id="preco" name="preco" value="<?php echo set_value('preco') ?>">
+                                <input type="text" class="money form-control" id="preco" name="preco" value="<?php echo set_value('preco') ?>">
                             </div>
                         </div>
                         <!--Ano-->
                         <div>
                             <label for="ano">Ano</label>
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="ano" name="ano" value="<?php echo set_value('ano') ?>">
+                                <input type="text" class="year form-control" id="ano" name="ano" value="<?php echo set_value('ano') ?>">
                             </div>
                         </div>
                         <!--Campo file-->

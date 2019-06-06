@@ -36,8 +36,8 @@ class Veiculo extends CI_Controller {
         $this->form_validation->set_rules('id_modelo', 'modelo', 'required');
         $this->form_validation->set_rules('id_marca', 'marca', 'required');
         $this->form_validation->set_rules('id_cor', 'cor', 'required');
-        $this->form_validation->set_rules('preco', 'preço', 'required|max_length[10]|numeric');
-        $this->form_validation->set_rules('ano', 'ano', 'required|max_length[4]|numeric');
+        $this->form_validation->set_rules('preco', 'preço', 'required');
+        $this->form_validation->set_rules('ano', 'ano', 'required');
         if ($this->form_validation->run() == false) {
             $this->cadastro();
         } else {
@@ -45,7 +45,8 @@ class Veiculo extends CI_Controller {
                 'cd_modelo' => $this->input->post('id_modelo'),
                 'cd_marca' => $this->input->post('id_marca'),
                 'cd_cor' => $this->input->post('id_cor'),
-                'preco' => $this->input->post('preco'),
+                'preco' => str_replace(',', '.', str_replace('.', '', $this->input->post('preco'))),
+                //'preco' => str_replace('', '.', str_replace('.', ',', $this->input->post('preco'))),
                 'ano' => $this->input->post('ano')
             );
             //IMG

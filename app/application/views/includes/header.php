@@ -65,7 +65,7 @@
                                     <a class="dropdown-item" href="#">選單1</a>
                                     <?php
                                     if ($this->session->userdata('status') == '1') {
-                                        echo '<a class = "dropdown-item" href="' . base_url('Marca/index') . '">Gerenciar Dados</a>';
+                                        echo '<a class = "dropdown-item" href="' . base_url('Veiculo/index') . '">Gerenciar Dados</a>';
                                     } else {
                                         echo '';
                                     }

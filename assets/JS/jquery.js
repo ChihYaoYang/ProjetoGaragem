@@ -44,3 +44,9 @@ $('input[type="file"]').change(function (e) {
     var fileName = e.target.files[0].name;
     $('.custom-file-label').html(fileName);
 });
+//Mascara
+$(document).ready(function () {
+    $('.money').mask('#.##0,00', {reverse: true});
+    $('.year').mask('0000');
+    return;
+});

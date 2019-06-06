@@ -36,6 +36,7 @@
                         if (count($veiculo) > 0) {
                             foreach ($veiculo as $v) {
                                 echo '<tr class="text-center">';
+                                echo '<td>' . $v->preco . '</td>';
                                 echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Veiculo/deletar/' . $v->id) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
                                 '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Veiculo/alterar/' . $v->id) . '"><i class="fas fa-edit"></i> Alterar</a>'
                                 . '</td>';
