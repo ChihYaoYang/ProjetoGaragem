@@ -36,10 +36,15 @@
                         if (count($veiculo) > 0) {
                             foreach ($veiculo as $v) {
                                 echo '<tr class="text-center">';
-                                echo '<td>' . $v->preco . '</td>';
+                                echo '<td><img src="' . base_url('public/uploads/' . $v->imagem) . '" width="50"></td>';
+                                echo '<td>' . $v->modelo . '</td>';
+                                echo '<td>' . $v->marca . '</td>';
+                                echo '<td>' . $v->cor . '</td>';
+                                echo '<td>R$ ' . number_format($v->preco, 2, ',', '.') . '</td>';
+                                echo '<td>' . $v->ano . '</td>';
                                 echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Veiculo/deletar/' . $v->id) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
-                                '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Veiculo/alterar/' . $v->id) . '"><i class="fas fa-edit"></i> Alterar</a>'
-                                . '</td>';
+                                    '<a class="btn btn-sm btn-outline-warning" href="' . base_url('Veiculo/alterar/' . $v->id) . '"><i class="fas fa-edit"></i> Alterar</a>'
+                                    . '</td>';
                                 echo '</tr>';
                             }
                         } else {

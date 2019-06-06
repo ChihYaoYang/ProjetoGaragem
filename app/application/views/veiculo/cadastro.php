@@ -79,7 +79,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">R$</div>
                                 </div>
-                                <input type="text" class="money form-control" id="preco" name="preco" value="<?php echo set_value('preco') ?>">
+                                <input type="text" class="money form-control" id="preco" name="preco" maxlength="13" value="<?php echo set_value('preco') ?>">
                             </div>
                         </div>
                         <!--Ano-->

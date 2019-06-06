@@ -36,7 +36,7 @@ class Modelo extends CI_Controller {
         } else {
             //resgata dados pelo post
             $data = array(
-                'nome' => $this->input->post('modelo')
+                'nome' => strtoupper($this->input->post('modelo')),
             );
             if ($this->Modelo_model->insert($data)) {
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Modelo Cadastrado com Sucesso! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
@@ -78,7 +78,7 @@ class Modelo extends CI_Controller {
                 $this->alteracao($id);
             } else {
                 $data = array(
-                    'nome' => $this->input->post('modelo')
+                    'nome' => strtoupper($this->input->post('modelo')),
                 );
                 if ($this->Modelo_model->update($id, $data)) {
                     $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Modelo Alterado com Sucesso ! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');

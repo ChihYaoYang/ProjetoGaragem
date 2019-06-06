@@ -35,7 +35,7 @@ class Marca extends CI_Controller {
         } else {
             $data = array(
                 //Nome da DB
-                'nome' => $this->input->post('marca'),
+                'nome' => strtoupper($this->input->post('marca')),
             );
             //IMG
             if (!empty($_FILES['imagem']['name']) || $_FILES['imagem']['name'] == '') {
@@ -96,7 +96,7 @@ class Marca extends CI_Controller {
             } else {
                 $data = array(
                     //Nome da DB
-                    'nome' => $this->input->post('marca'),
+                    'nome' => strtoupper($this->input->post('marca')),
                 );
                 //IMG
                 if (!empty($_FILES['imagem']['name'])) {
