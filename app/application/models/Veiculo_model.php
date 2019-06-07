@@ -10,8 +10,7 @@ class Veiculo_model extends CI_model {
 
     //Read
     public function getAll() {
-
-
+        $this->db->order_by('ano', 'DESC');
         $this->db->select('tb_veiculo.*, tb_marca.nome as marca, tb_cor.descricao as cor, tb_modelo.nome as modelo');
         $this->db->from('tb_veiculo');
         $this->db->join('tb_marca', 'tb_marca.id=tb_veiculo.cd_marca', 'inner');

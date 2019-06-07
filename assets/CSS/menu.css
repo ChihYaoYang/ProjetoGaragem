@@ -49,3 +49,9 @@
     display: block;
     margin-top: 0;
 }
+
+.card {
+    float: left;
+    width: 100%;
+    margin: 0 auto;
+}
