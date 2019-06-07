@@ -40,7 +40,7 @@
                 <!---Menu--->
                 <div class="navbar-collapse side-collapse-right in menu">
                     <ul class="navbar-nav mr-auto">
-                        <!--Cadastro Prova--->
+                        <!--Cadastro Veículo--->
                         <li class="nav-item dropdown">
                             <a href="#" id="menuCliente" class="nav-link dropdown-toggle text-light" data-toggle="dropdown">Automóvel</a>
                             <div class="dropdown-menu" aria-labelledby="menuCliente">
@@ -49,6 +49,12 @@
                                 <a href="<?= base_url() . 'Marca/index' ?>" class="dropdown-item"><i class="fas fa-list-ul"></i> Marca</a>
                                 <a href="<?= base_url() . 'Modelo/index' ?>" class="dropdown-item"><i class="fas fa-list-ul"></i> Modelo</a>
                                 <a href="<?= base_url() . 'Cor/index' ?>" class="dropdown-item"><i class="fas fa-list-ul"></i> Cor</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" id="menuCliente" class="nav-link dropdown-toggle text-light" data-toggle="dropdown">Accessório</a>
+                            <div class="dropdown-menu" aria-labelledby="menuCliente">
+                                <a href="<?= base_url() . 'Accessorio/index' ?>" class="dropdown-item"><i class="fas fa-list-ul"></i> Lista</a>
                             </div>
                         </li>
                     </ul>
@@ -61,7 +67,7 @@
                     } else {
                         ?>
                         <li class="nav-item dropdown pull-left">
-                            <a href="#" id="menu" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><?= $this->session->userdata('nome'); ?></a>
+                            <a href="#" id="menu" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><i class="fas fa-user"></i> <?= $this->session->userdata('nome'); ?></a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu">
                                 <a class="dropdown-item" href="#">選單1</a>
                                 <?php
