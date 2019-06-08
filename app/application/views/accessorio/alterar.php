@@ -32,7 +32,7 @@
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">R$</div>
                                 </div>
-                                <input type="text" class="money form-control" id="preco" name="preco" value="<?= (isset($access)) ? $access->preco : ''; ?>">
+                                <input type="text" class="money form-control" id="preco" name="preco" maxlength="13" value="<?= (isset($access)) ? $access->preco : ''; ?>">
                             </div>
                         </div>
                         <!--Campo file-->

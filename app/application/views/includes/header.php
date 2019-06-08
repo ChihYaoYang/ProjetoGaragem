@@ -15,10 +15,11 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/CSS/menu.css'); ?>">
     <!--Caousel CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/CSS/carrousel.css'); ?>">
+    
 </head>
 
 <body>
-    <!--Menu-->
+    <!--Menu Cliente-->
     <nav class="navbar navbar-dark navbar-expand-md sticky-top" style="background:#7ed6df;">
         <a class="navbar-brand" href="<?= base_url() ?>"><img src="<?php echo base_url('/assets/logo/logo.svg'); ?>" class="img-fluid" alt="logomarca"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse-side" data-target-sidebar=".side-collapse-right" data-target-content=".side-collapse-container-right" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,13 +32,13 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active mr-2"><a class="nav-link" href="<?= base_url() ?>">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/veiculo') ?>">Veículo</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Acessório</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/accessorio') ?>">Acessório</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Fale Conosco</a></li>
                 </ul>
             <?php
         } else {
             ?>
-                <!---Menu--->
+                <!---Menu Admin--->
                 <div class="navbar-collapse side-collapse-right in menu">
                     <ul class="navbar-nav mr-auto">
                         <!--Cadastro Veículo--->
@@ -54,6 +55,7 @@
                         <li class="nav-item dropdown">
                             <a href="#" id="menuCliente" class="nav-link dropdown-toggle text-light" data-toggle="dropdown">Accessório</a>
                             <div class="dropdown-menu" aria-labelledby="menuCliente">
+                            <a href="<?= base_url('Home/accessorio') ?>" class="dropdown-item"><i class="fas fa-list-ul"></i> Acessório</a>
                                 <a href="<?= base_url() . 'Accessorio/index' ?>" class="dropdown-item"><i class="fas fa-list-ul"></i> Lista</a>
                             </div>
                         </li>

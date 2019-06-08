@@ -9,6 +9,7 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Veiculo_model');
+        $this->load->model('Accessorio_model');
     }
 
     public function index()
@@ -22,6 +23,13 @@ class Home extends CI_Controller
         $data['veiculo'] = $this->Veiculo_model->getAll();
         $this->load->view('includes/header');
         $this->load->view('paginainicial/veiculo', $data);
+        $this->load->view('includes/footer');
+    }
+    public function accessorio()
+    {
+        $data['acess'] = $this->Accessorio_model->getAll();
+        $this->load->view('includes/header');
+        $this->load->view('paginainicial/accessorio', $data);
         $this->load->view('includes/footer');
     }
 }

@@ -32,7 +32,7 @@ class Accessorio extends CI_Controller
             $this->cadastro();
         } else {
             $data = array(
-                'descricao' => $this->input->post('descricao'),
+                'descricao' => strtoupper($this->input->post('descricao')),
                 'preco' => str_replace(',', '.', str_replace('.', '', $this->input->post('preco'))),
             );
             //IMG
@@ -94,7 +94,7 @@ class Accessorio extends CI_Controller
                 $this->alteracao($id);
             } else {
                 $data = array(
-                    'descricao' => $this->input->post('descricao'),
+                    'descricao' => strtoupper($this->input->post('descricao')),
                     'preco' => str_replace(',', '.', str_replace('.', '', $this->input->post('preco'))),
                 );
                 //IMG

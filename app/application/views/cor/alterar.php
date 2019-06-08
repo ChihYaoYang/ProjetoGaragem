@@ -7,7 +7,6 @@
     </nav>
     <div class="row">
         <div class="col-md-8 offset-md-2 col-xs-12">
-            <!---Card--->
             <div class="card">
                 <h3 class="card-header bg-transparent"> <i class="fas fa-edit"></i>Alteração de Cor</h3>
                 <div class="card-body">

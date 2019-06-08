@@ -5,7 +5,7 @@
     </div>
     <?php
     foreach ($veiculo as $v) {
-        echo ' <div class="col-md-4">';
+        echo '<div class="col-md-4">';
         echo '<div class="card mb-4">';
         echo '<img src="' . base_url('public/uploads/' . $v->imagem) . '" class="card-img-top" height="250px">';
         echo '<div class="card-body">';
@@ -22,5 +22,4 @@
         echo '</div>';
     }
     ?>
-
 </div>
