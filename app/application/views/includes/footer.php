@@ -34,7 +34,7 @@
     }
 </style>
 <!-- Footer -->
-<footer class="fixed-bottom page-footer font-small pt-4" style="background-color:#4267b2;">
+<footer class="page-footer font-small pt-4" style="background-color:#4267b2;">
     <div class="container-fluid text-center text-md-left">
         <div class="row">
             <div class="offset-2 col-md-4">
