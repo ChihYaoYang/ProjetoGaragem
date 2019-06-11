@@ -11,8 +11,9 @@ class Home extends CI_Controller {
     }
 
     public function index() {
+        $data['veiculo'] = $this->Veiculo_model->getAll();
         $this->load->view('includes/header');
-        $this->load->view('paginainicial/home');
+        $this->load->view('paginainicial/home', $data);
         $this->load->view('includes/footer');
     }
 

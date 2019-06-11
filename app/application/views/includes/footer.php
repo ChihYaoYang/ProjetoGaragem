@@ -44,10 +44,10 @@
             <div class="offset-1 col-md-5">
                 <h5 class="text-uppercase text-light">Menu</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#!" class="text-light">Home</a></li>
-                    <li><a href="#!" class="text-light">Veículo</a></li>
-                    <li><a href="#!" class="text-light">Acessório</a></li>
-                    <li><a href="#!" class="text-light">Fale Conosco</a></li>
+                    <li><a href="<?= base_url() ?>" class="text-light">Home</a></li>
+                    <li><a href="<?= base_url('Home/veiculo') ?>" class="text-light">Veículo</a></li>
+                    <li><a href="<?= base_url('Home/accessorio') ?>" class="text-light">Acessório</a></li>
+                    <li><a href="<?= base_url('Home/contato') ?>" class="text-light">Fale Conosco</a></li>
                 </ul>
             </div>
         </div>
