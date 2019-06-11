@@ -89,4 +89,4 @@
                 </div>
         </nav>
         <!--Conteudo-->
-        <div class="container-fluid side-collapse-container-right">
+        <div class="container-fluid side-collapse-container-right scroll">

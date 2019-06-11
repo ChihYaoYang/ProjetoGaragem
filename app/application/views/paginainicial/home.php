@@ -14,6 +14,11 @@
         </div>
     </div>
 </div>
-<div class="col">
-    <p>Contéudo</p>
+<div class="row back">
+    <div class="col-md-6">
+        <img src="<?php echo base_url('/assets/logo/logo.svg'); ?>" class="img-fluid" alt="logomarca">
+    </div>
+    <div class="col-md-6">
+        <p>VendCar site de Vendas</p>
+    </div>
 </div>
