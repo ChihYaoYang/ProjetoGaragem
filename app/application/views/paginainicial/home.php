@@ -44,7 +44,7 @@
         echo '<p class="card-text">R$: ' . number_format($v->preco, 2, ',', '.') . '</p>';
         echo '<p class="card-text">Ano: ' . $v->ano . '</p>';
         if ($this->session->userdata('status') == 1 || $this->session->userdata('status') == 2) {
-            echo '<a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
+            echo '<a href="' . base_url('Pedido/index/' . $v->id) . '" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
         }
         echo '</div>';
         echo '</div>';
