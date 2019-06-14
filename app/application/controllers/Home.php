@@ -33,7 +33,7 @@ class Home extends CI_Controller {
 
     public function contato() {
         $this->load->view('includes/header');
-        $this->load->view('contato/contato');
+        $this->load->view('paginainicial/contato');
         $this->load->view('includes/footer');
     }
 

@@ -1,10 +1,4 @@
 <div class="container mt-3">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-            <li class="breadcrumb-item" aria-current="page">Fale Conosco</li>
-        </ol>
-    </nav>
     <div class="row">
         <div class="col">
             <?php

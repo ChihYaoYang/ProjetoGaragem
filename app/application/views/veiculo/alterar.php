@@ -107,9 +107,9 @@
                         <img src="" id="view" name="imagemns" width="100" style="max-height:100px" />
                         <p>
                             <!--Button-->
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Enviar</button>
-                            </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Enviar</button>
+                        </div>
                     </form>
                 </div>
             </div>

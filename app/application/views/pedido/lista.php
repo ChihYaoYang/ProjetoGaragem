@@ -1,7 +1,3 @@
-<?php
-//var_dump($veiculo);
-//exit;
-?>
 <div class="row">
     <div class="card-deck">
         <div class="card">
@@ -11,9 +7,9 @@
             }
             ?>
             <div class="card-body">
-                <h5 class="card-title">Modelo:<?= $veiculo->cd_modelo ?></h5>
-                <p class="card-text">Marca: <?= $veiculo->cd_marca ?> </p>
-                <p class="card-text">Cor: <?= $veiculo->cd_cor ?> </p>
+                <h5 class="card-title">Modelo:<?= $veiculo->modelo ?></h5>
+                <p class="card-text">Marca: <?= $veiculo->marca ?> </p>
+                <p class="card-text">Cor: <?= $veiculo->cor ?> </p>
                 <p class="card-text">R$: <?= number_format($veiculo->preco, 2, ',', '.') ?> </p>
                 <p class="card-text">Ano: <?= $veiculo->ano ?> </p>
             </div>

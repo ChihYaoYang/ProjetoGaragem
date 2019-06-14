@@ -17,7 +17,7 @@ class Veiculo_model extends CI_model {
         $this->db->join('tb_cor', 'tb_cor.id=tb_veiculo.cd_cor', 'inner');
         $this->db->join('tb_modelo', 'tb_modelo.id=tb_veiculo.cd_modelo', 'inner');
         $query = $this->db->get();
-        return $query->result();  
+        return $query->result();
     }
 
     //count
@@ -60,5 +60,4 @@ class Veiculo_model extends CI_model {
             return false;
         }
     }
-
 }
