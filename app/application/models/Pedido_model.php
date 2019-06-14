@@ -6,6 +6,11 @@
 
 class Pedido_model extends CI_model {
 
+    public function getAll() {
+        $query = $this->db->get('tb_formapagamento');
+        return $query->result();
+    }
+
     public function getAllId($id) {
         $this->db->select('tb_veiculo.*, tb_marca.nome as marca, tb_cor.descricao as cor, tb_modelo.nome as modelo');
         $this->db->from('tb_veiculo');
@@ -15,6 +20,11 @@ class Pedido_model extends CI_model {
         $this->db->where('tb_veiculo.id', $id);
         $query = $this->db->get();
         return $query->row(0);
+    }
+
+    public function insert($data = array()) {
+        $this->db->insert('tb_pedido', $data);
+        return $this->db->affected_rows();
     }
 
 }
