@@ -61,7 +61,7 @@
                                 <a href="<?= base_url() . 'Accessorio/index' ?>" class="dropdown-item"><i class="fas fa-list-ul"></i> Lista</a>
                             </div>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/contato') ?>">Fale Conosco</a></li>
+                        <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/faleConosco') ?>">Fale Conosco</a></li>
                     </ul>
                 <?php }
             ?>
