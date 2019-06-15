@@ -33,7 +33,7 @@
                     <li class="nav-item active mr-2"><a class="nav-link" href="<?= base_url() ?>">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/veiculo') ?>">Veículo</a></li>
                     <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/accessorio') ?>">Acessório</a></li>
-                    <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/contato') ?>">Fale Conosco</a></li>
+                    <li class="nav-item"><a class="nav-link" href="<?= base_url('Home/faleConosco') ?>">Fale Conosco</a></li>
                 </ul>
             <?php
         } else {
