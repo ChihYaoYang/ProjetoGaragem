@@ -12,7 +12,7 @@
         echo '<h5 class="card-title">' . $ac->descricao . '</h5>';
         echo '<p class="card-text">R$: ' . number_format($ac->preco, 2, ',', '.') . '</p>';
         if ($this->session->userdata('status') == 1 || $this->session->userdata('status') == 2) {
-            echo '<a href="#" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
+            echo '<a href="' . base_url('Pedido/cadastrarAcess/' . $ac->id) . '" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
         }
         echo '</div>';
         echo '</div>';

@@ -44,7 +44,7 @@
         echo '<p class="card-text">R$: ' . number_format($v->preco, 2, ',', '.') . '</p>';
         echo '<p class="card-text">Ano: ' . $v->ano . '</p>';
         if ($this->session->userdata('status') == 1 || $this->session->userdata('status') == 2) {
-            echo '<a href="' . base_url('Pedido/index/' . $v->id) . '" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
+            echo '<a href="' . base_url('Pedido/cadastrar/' . $v->id) . '" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
         }
         echo '</div>';
         echo '</div>';
@@ -53,11 +53,5 @@
     ?>
     <div class="col text-center">
         <a href="<?= base_url('Home/veiculo') ?>" class="btn btn-info">Show More . . .</a>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <hr>
-        <h2 class="text-center text-info">? ? ?</h2>
     </div>
 </div>

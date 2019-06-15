@@ -72,7 +72,7 @@
                             <li class="nav-item dropdown pull-left">
                                 <a href="#" id="menu" class="nav-link dropdown-toggle text-light" data-toggle="dropdown"><i class="fas fa-user"></i> <?= $this->session->userdata('nome'); ?></a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu">
-                                    <a class="dropdown-item" href="#">選單1</a>
+                                    <a class="dropdown-item" href="<?= base_url() . 'Pedido/compra' ?>">Lista de Compra</a>
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="<?= base_url() . 'Usuario/sair' ?>"><i class="fas fa-sign-out-alt"></i> Sair</a>
                                 </div>
