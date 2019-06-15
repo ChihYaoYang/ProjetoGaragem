@@ -47,7 +47,7 @@
                     <li><a href="<?= base_url() ?>" class="text-light">Home</a></li>
                     <li><a href="<?= base_url('Home/veiculo') ?>" class="text-light">Veículo</a></li>
                     <li><a href="<?= base_url('Home/accessorio') ?>" class="text-light">Acessório</a></li>
-                    <li><a href="<?= base_url('Home/contato') ?>" class="text-light">Fale Conosco</a></li>
+                    <li><a href="<?= base_url('Home/faleConosco') ?>" class="text-light">Fale Conosco</a></li>
                 </ul>
             </div>
         </div>
