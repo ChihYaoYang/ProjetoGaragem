@@ -23,12 +23,6 @@ class Pedido_model extends CI_model {
         return $query->result();
     }
 
-    //count
-    public function countrow() {
-        $query = $this->db->query('SELECT id FROM tb_pedido');
-        return $query->num_rows();
-    }
-
     public function getAllId($id) {
         $this->db->select('tb_veiculo.*, tb_marca.nome as marca, tb_cor.descricao as cor, tb_modelo.nome as modelo');
         $this->db->from('tb_veiculo');
@@ -37,7 +31,6 @@ class Pedido_model extends CI_model {
         $this->db->join('tb_modelo', 'tb_modelo.id=tb_veiculo.cd_modelo', 'inner');
         $this->db->where('tb_veiculo.id', $id);
         $query = $this->db->get();
-        //echo $this->db->last_query();
         return $query->row(0);
     }
 
@@ -52,5 +45,4 @@ class Pedido_model extends CI_model {
         $this->db->insert('tb_pedido', $data);
         return $this->db->affected_rows();
     }
-
 }

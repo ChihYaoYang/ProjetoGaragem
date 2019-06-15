@@ -93,7 +93,6 @@ class Pedido extends CI_Controller {
 
     public function compra() {
         $data['compra'] = $this->Pedido_model->getAllCompra();
-        $data['total'] = $this->Pedido_model->countrow();
         $this->load->view('includes/header');
         $this->load->view('pedido/compra', $data);
         $this->load->view('includes/footer');

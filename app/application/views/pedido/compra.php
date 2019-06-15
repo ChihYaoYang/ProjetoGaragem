@@ -30,27 +30,31 @@
                         <?php
                         if (count($compra) > 0) {
                             foreach ($compra as $c) {
-                                echo '<tr class="text-center">';
-                                echo '<td>' . $c->descricao . '</td>';
-                                echo '<td><img src="' . base_url('public/uploads/' . $c->veiculo) . '" width="50"></td>';
-                                echo '<td><img src="' . base_url('public/uploads/' . $c->acessorio) . '" width="50"></td>';
-                                echo '<td>' . $c->username . '</td>';
-                                echo '<td>' . $c->cpf . '</td>';
-                                echo '<td>' . $c->rg . '</td>';
-                                echo '<td>' . $c->telefone . '</td>';
-                                echo '<td>' . $c->data_pedido . '</td>';
+                                if ($this->session->userdata('idUsuario') == $c->cd_usuario) {
+                                    echo '<tr class="text-center">';
+                                    echo '<td>' . $c->descricao . '</td>';
+                                    if ($c->veiculo != NULL) {
+                                        echo '<td><img src="' . base_url('public/uploads/' . $c->veiculo) . '" width="50"></td>';
+                                    } else {
+                                        echo '<td>' . '</td>';
+                                    }
+                                    if ($c->acessorio != NULL) {
+                                        echo '<td><img src="' . base_url('public/uploads/' . $c->acessorio) . '" width="50"></td>';
+                                    } else {
+                                        echo '<td>' . '</td>';
+                                    }
+                                    echo '<td>' . $c->username . '</td>';
+                                    echo '<td>' . $c->cpf . '</td>';
+                                    echo '<td>' . $c->rg . '</td>';
+                                    echo '<td>' . $c->telefone . '</td>';
+                                    echo '<td>' . $c->data_pedido . '</td>';
+                                }
                             }
                         } else {
                             echo '<tr><td colspan="9">Nenhum Compra efetuada</td></tr>';
                         }
                         ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th scope="row">Total de Compra</th>
-                            <td colspan="9" class="text-right"><?php echo $total; ?></td>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
