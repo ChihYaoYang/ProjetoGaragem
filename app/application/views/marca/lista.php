@@ -22,7 +22,6 @@
                     <hr>
                     <thead>
                         <tr class="text-center">
-                            <th scope="col">Imagem</th>
                             <th scope="col">Marca</th>
                             <th scope="col">Opção</th>
                         </tr>
@@ -32,7 +31,6 @@
                         if (count($marca) > 0) {
                             foreach ($marca as $m) {
                                 echo '<tr class="text-center">';
-                                echo '<td><img src="' . base_url('public/uploads/' . $m->imagem) . '" width="50"></td>';
                                 //Nome da DB
                                 echo '<td>' . $m->nome . '</td>';
                                 echo '<td class="text-right">' . '<a class="btn btn-sm btn-outline-danger mr-2 delete" href="' . base_url('Marca/deletar/' . $m->id) . '"><i class="fas fa-trash-alt"></i> Delete</a>' .
@@ -41,7 +39,7 @@
                                 echo '</tr>';
                             }
                         } else {
-                            echo '<tr><td colspan="3">Nenhum Marca cadastrado</td></tr>';
+                            echo '<tr><td colspan="2">Nenhum Marca cadastrado</td></tr>';
                         }
                         ?>
                     </tbody>

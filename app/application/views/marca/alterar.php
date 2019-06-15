@@ -24,24 +24,6 @@
                                 <input type="text" class="form-control" id="marca" name="marca" value="<?= isset($marca) ? $marca->nome : ''; ?>">
                             </div>
                         </div>
-                        <!--Campo file-->
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="inputGroupFileAddon01"><i class="fas fa-image"></i></span>
-                            </div>
-                            <div class="custom-file">
-                                <label class="custom-file-label" for="imagem">Escolha arquivo</label>
-                                <input type="file" class="custom-file-input" id="imagem" name="imagem" accept="image/jpg, image/jpeg, image/png">
-                            </div>
-                        </div>
-                        <?php
-                        if (!empty($marca->imagem) && file_exists('./public/uploads/' . $marca->imagem)) {
-                            echo '<img src="' . base_url('./public/uploads/' . $marca->imagem) . '" width="100" height="100">';
-                        }
-                        ?>
-                        to
-                        <img src="" id="view" name="imagemns" width="100" style="max-height:100px" />
-                        <p>
                             <!--Button-->
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Enviar</button>
