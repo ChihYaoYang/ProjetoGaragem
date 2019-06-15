@@ -15,7 +15,9 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/CSS/menu.css'); ?>">
     <!--Caousel CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('/assets/CSS/carrousel.css'); ?>">
-
+    <!--Icone-->
+    <link rel="icon" href="<?php echo base_url('/assets/logo/ico.png'); ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo base_url('/assets/logo/ico.png'); ?>" type="image/x-icon" />
 </head>
 
 <body>
