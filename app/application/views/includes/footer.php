@@ -73,7 +73,7 @@
 <!--Jquery-->
 <script type='text/javascript' src="<?php echo base_url('/assets/JS/jquery.js'); ?>"></script>
 <!--Mascara-->
-<script type='text/javascript' src="<?php echo base_url('/assets/JS/mascara.js'); ?>"></script>           
+<script type='text/javascript' src="<?php echo base_url('/assets/JS/mascara.js'); ?>"></script>
 <!--Menu-->
 <script type='text/javascript' src="<?php echo base_url('/assets/JS/menu.js'); ?>"></script>
 </body>
