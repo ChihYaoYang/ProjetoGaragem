@@ -15,15 +15,9 @@ class Recupassword extends CI_Controller {
         } else {
             //Configuração de email
             $this->load->library("email");
-            $config["protocol"] = "smtp";
-            $config["smtp_host"] = "ssl://smtp.gmail.com";
-            $config["smtp_user"] = "chih.yang@aluno.sc.senac.br";
-            $config["smtp_pass"] = "sq092ppe76";
-            $config['wordwrap'] = TRUE;
-            $config["charset"] = "utf-8";
-            $config["mailtype"] = "html";
-            $config["newline"] = "\r\n";
-            $config["smtp_port"] = '465';
+            $config = array(
+                'mailtype' => "html",
+            );
             $this->email->initialize($config);
 
             $this->email->from('chih.yang@aluno.sc.senac.br', 'Admin');
