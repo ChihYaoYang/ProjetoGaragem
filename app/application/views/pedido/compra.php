@@ -36,12 +36,12 @@
                                     if ($c->veiculo != NULL) {
                                         echo '<td><img src="' . base_url('public/uploads/' . $c->veiculo) . '" width="50"></td>';
                                     } else {
-                                        echo '<td>' . '</td>';
+                                        echo '<td>' . '---' . '</td>';
                                     }
                                     if ($c->acessorio != NULL) {
                                         echo '<td><img src="' . base_url('public/uploads/' . $c->acessorio) . '" width="50"></td>';
                                     } else {
-                                        echo '<td>' . '</td>';
+                                        echo '<td>' . '---' . '</td>';
                                     }
                                     echo '<td>' . $c->username . '</td>';
                                     echo '<td>' . $c->cpf . '</td>';
