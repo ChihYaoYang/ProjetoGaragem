@@ -29,7 +29,7 @@
                     <input type="password" name="senha" id="senha" placeholder="Password" required="">
                     <div class="text-center">
                         <a href="<?= base_url() . 'Usuario/cadastrar' ?>">Register</a>
-                        <a href="<?= base_url() . 'Recupassword/index' ?>">Forgot password ?</a>
+                        <a href="<?= base_url() . 'Recupassword/sendmail' ?>">Forgot password ?</a>
                     </div>
                     <button type="submit">Acessar</button>
                 </form>

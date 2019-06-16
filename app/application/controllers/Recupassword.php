@@ -13,16 +13,23 @@ class Recupassword extends CI_Controller {
         if ($this->form_validation->run() == false) {
             $this->index();
         } else {
-            $config['protocol'] = 'sendmail';
-            $config['mailpath'] = '/usr/sbin/sendmail';
-            $config['charset'] = 'iso-8859-1';
+            //Configuração de email
+            $this->load->library("email");
+            $config["protocol"] = "smtp";
+            $config["smtp_host"] = "ssl://smtp.gmail.com";
+            $config["smtp_user"] = "chih.yang@aluno.sc.senac.br";
+            $config["smtp_pass"] = "sq092ppe76";
             $config['wordwrap'] = TRUE;
+            $config["charset"] = "utf-8";
+            $config["mailtype"] = "html";
+            $config["newline"] = "\r\n";
+            $config["smtp_port"] = '465';
             $this->email->initialize($config);
 
             $this->email->from('chih.yang@aluno.sc.senac.br', 'Admin');
             $this->email->to($this->input->post('email'));
-            $this->email->subject('Send Email Codeigniter');
-            $this->email->message('The email send using codeigniter library');
+            $this->email->subject('Esqueceu sua senha ?');
+            $this->email->message('Aqui está seu novo senha');
             //Send mail
             if ($this->email->send()) {
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Email Enviado com Successo Checky seu Email</div>');

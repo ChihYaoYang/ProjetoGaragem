@@ -46,15 +46,22 @@ class Home extends CI_Controller
             $this->load->view('paginainicial/contato');
             $this->load->view('includes/footer');
         } else {
-            $config['protocol'] = 'sendmail';
-            $config['mailpath'] = '/usr/sbin/sendmail';
-            $config['charset'] = 'iso-8859-1';
+            //Configuração de email
+            $this->load->library("email");
+            $config["protocol"] = "smtp";
+            $config["smtp_host"] = "ssl://smtp.gmail.com";
+            $config["smtp_user"] = "chih.yang@aluno.sc.senac.br";
+            $config["smtp_pass"] = "sq092ppe76";
             $config['wordwrap'] = TRUE;
+            $config["charset"] = "utf-8";
+            $config["mailtype"] = "html";
+            $config["newline"] = "\r\n";
+            $config["smtp_port"] = '465';
             $this->email->initialize($config);
 
             $this->email->from($this->input->post('email'), $this->input->post('nome'));
             $this->email->to('chih.yang@aluno.sc.senac.br');
-            $this->email->subject('Mensagem . . .');
+            $this->email->subject('VendCar');
             $this->email->message($this->input->post('texto'));
             //Send email
             if ($this->session->userdata('status') == 0) {
