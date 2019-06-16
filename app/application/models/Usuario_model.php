@@ -15,6 +15,12 @@ class Usuario_model extends CI_Model
         $query = $this->db->get(self::table);
         return $query->result();
     }
+    //Get Email
+    public function getEmail($email)
+    {
+        $query = $this->db->query("SELECT email FROM tb_usuario WHERE email='$email'");
+        return $query->row();
+    }
     //GET_ID
     public function getId($id)
     {
@@ -36,11 +42,11 @@ class Usuario_model extends CI_Model
         }
     }
     //Update Email
-    public function updateEmail($data = array(),$email)
+    public function updateEmail($data = array(), $email)
     {
         $this->db->set('senha', sha1($data['senha'] . self::password));
         $this->db->where('email', $email);
-        $this->db->update('tb_usuario'); 
+        $this->db->update('tb_usuario');
         return $this->db->affected_rows();
     }
     //Método que busca usuario no banco de dados
