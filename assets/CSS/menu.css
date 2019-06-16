@@ -1,4 +1,5 @@
 /*Menu*/
+
 .navbar-dark .navbar-nav .nav-link {
     padding: .5rem 1rem;
 }
@@ -50,22 +51,30 @@
     display: block;
     margin-top: 0;
 }
+
+
 /*footer*/
-footer{
+
+footer {
     margin-top: 150px;
 }
+
+
 /*Card*/
+
 .card {
     float: left;
     width: 100%;
     margin: 0 auto;
 }
+
 .back:before {
-    content: "";  
+    content: "";
     position: absolute;
-    background-image: linear-gradient(135deg,#6F6F75,#81bdff);
+    background-image: linear-gradient(135deg, #6F6F75, #81bdff);
     width: 100%;
-    height: 50%;  
-    transform: skewY(-2deg);  /* Girar  */
+    height: 50%;
+    transform: skewY(-2deg);
+    /* Girar  */
     margin-top: -100px;
 }
