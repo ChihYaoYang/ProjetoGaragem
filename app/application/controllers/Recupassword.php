@@ -24,7 +24,7 @@ class Recupassword extends CI_Controller
             $useremail = $this->Usuario_model->getAll();
             foreach ($useremail as $user) {
                 if ($this->input->post('email') != $user->email) {
-                    $this->session->set_flashdata('mensagem', '<div class="alert alert-danger"><i class="fas fa-times"></i> Este Email não existe *_*</div>');
+                    $this->session->set_flashdata('mensagem', '<div class="alert alert-danger"><i class="fas fa-times"></i> Este Email não existe *_* <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
                     redirect('Recupassword/sendmail');
                 } else {
                     //Gera string Aleatorio e altera senha no DB
@@ -34,7 +34,7 @@ class Recupassword extends CI_Controller
                     $data = array(
                         'senha' => $randpass,
                     );
-                    $this->Usuario_model->update($data);
+                    $this->Usuario_model->updateEmail($data,$this->input->post('email'));
                     //Configuração de email
                     $this->load->library("email");
                     $config = array(

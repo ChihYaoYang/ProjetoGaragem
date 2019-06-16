@@ -35,6 +35,14 @@ class Usuario_model extends CI_Model
             return false;
         }
     }
+    //Update Email
+    public function updateEmail($data = array(),$email)
+    {
+        $this->db->set('senha', sha1($data['senha'] . self::password));
+        $this->db->where('email', $email);
+        $this->db->update('tb_usuario'); 
+        return $this->db->affected_rows();
+    }
     //Método que busca usuario no banco de dados
     //Recebe parametro email e senha
     public function getUsuario($email, $senha)
