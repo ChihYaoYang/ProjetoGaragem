@@ -29,7 +29,6 @@ class Cor_model extends CI_model {
 
     //Delete
     public function delete($id) {
-        //Valida
         if ($id > 0) {
             $this->db->where('id', $id);
             $this->db->delete(self::table);

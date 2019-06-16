@@ -26,18 +26,15 @@ class User extends CI_Controller
     public function alterar($id)
     {
         if ($id > 0) {
-            //Validation form
             $this->form_validation->set_rules('nome', 'nome', 'required|max_length[50]');
             $this->form_validation->set_rules('senha', 'senha', 'required|min_length[6]|max_length[20]');
             if ($this->form_validation->run() == false) {
                 $this->alteracao($id);
             } else {
-                //resgata dados
                 $data = array(
                     'nome' => $this->input->post('nome'),
                     'senha' => $this->input->post('senha'),
                 );
-                //Chama método de update
                 if ($this->Usuario_model->update($id, $data)) {
                     $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Usuário Alterado com Sucesso Tentei loga de novo! ! !<button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
                     redirect('Usuario/login');

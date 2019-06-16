@@ -25,7 +25,7 @@ class Veiculo extends CI_Controller
         $this->load->view('veiculo/lista', $data);
         $this->load->view('includes/footer');
     }
-
+    //Insert
     public function cadastro()
     {
         $data['modelo'] = $this->Modelo_model->getAll();

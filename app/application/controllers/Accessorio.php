@@ -18,6 +18,7 @@ class Accessorio extends CI_Controller
         $this->load->view('accessorio/lista', $data);
         $this->load->view('includes/footer');
     }
+    //Insert
     public function cadastro()
     {
         $this->load->view('includes/header');

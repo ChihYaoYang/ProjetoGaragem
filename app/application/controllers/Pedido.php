@@ -13,7 +13,7 @@ class Pedido extends CI_Controller {
         date_default_timezone_set('America/Sao_Paulo');
     }
 
-    //Veiculo
+    //Pedido Veiculo
     public function index($id) {
         $data['veiculo'] = $this->Pedido_model->getAllId($id);
         $data['paga'] = $this->Pedido_model->getAll();
@@ -52,7 +52,7 @@ class Pedido extends CI_Controller {
         }
     }
 
-    //Acessorio
+    //Pedido Acessorio
     public function acess($id) {
         $data['acess'] = $this->Pedido_model->getAllIdAcessorio($id);
         $data['paga'] = $this->Pedido_model->getAll();

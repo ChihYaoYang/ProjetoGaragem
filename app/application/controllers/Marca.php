@@ -21,7 +21,7 @@ class Marca extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
-    //Create
+    //Insert
     public function cadastro() {
         $this->load->view('includes/header');
         $this->load->view('marca/cadastro');
