@@ -2,11 +2,9 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Veiculo extends CI_Controller
-{
+class Veiculo extends CI_Controller {
 
-    public function __construct()
-    {
+    public function __construct() {
         parent::__construct();
         $this->load->model('Modelo_model');
         $this->load->model('Marca_model');
@@ -17,17 +15,16 @@ class Veiculo extends CI_Controller
         $this->Usuario_model->checkSession();
     }
 
-    public function index()
-    {
+    public function index() {
         $data['veiculo'] = $this->Veiculo_model->getAll();
         $data['total'] = $this->Veiculo_model->countrow();
         $this->load->view('includes/header');
         $this->load->view('veiculo/lista', $data);
         $this->load->view('includes/footer');
     }
+
     //Insert
-    public function cadastro()
-    {
+    public function cadastro() {
         $data['modelo'] = $this->Modelo_model->getAll();
         $data['marca'] = $this->Marca_model->getAll();
         $data['cor'] = $this->Cor_model->getAll();
@@ -36,8 +33,7 @@ class Veiculo extends CI_Controller
         $this->load->view('includes/footer');
     }
 
-    public function cadastrar()
-    {
+    public function cadastrar() {
         $this->form_validation->set_rules('id_modelo', 'modelo', 'required');
         $this->form_validation->set_rules('id_marca', 'marca', 'required');
         $this->form_validation->set_rules('id_cor', 'cor', 'required');
@@ -80,9 +76,9 @@ class Veiculo extends CI_Controller
             }
         }
     }
+
     //Delete
-    public function deletar($id)
-    {
+    public function deletar($id) {
         $get = $this->Veiculo_model->getId($id);
         //Valida
         if ($id > 0) {
@@ -95,9 +91,9 @@ class Veiculo extends CI_Controller
         }
         redirect('Veiculo/index');
     }
+
     //Update
-    public function alteracao($id)
-    {
+    public function alteracao($id) {
         $data['veiculo'] = $this->Veiculo_model->getId($id);
         $data['marca'] = $this->Marca_model->getAll($id);
         $data['cor'] = $this->Cor_model->getAll($id);
@@ -106,8 +102,8 @@ class Veiculo extends CI_Controller
         $this->load->view('veiculo/alterar', $data);
         $this->load->view('includes/footer');
     }
-    public function alterar($id)
-    {
+
+    public function alterar($id) {
         if ($id > 0) {
             $this->form_validation->set_rules('id_modelo', 'modelo', 'required');
             $this->form_validation->set_rules('id_marca', 'marca', 'required');
@@ -155,4 +151,5 @@ class Veiculo extends CI_Controller
             }
         }
     }
+
 }

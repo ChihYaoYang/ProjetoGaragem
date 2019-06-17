@@ -2,20 +2,18 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Recupassword extends CI_Controller
-{
-    public function __construct()
-    {
+class Recupassword extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->model('Usuario_model');
     }
-    public function index()
-    {
+
+    public function index() {
         $this->load->view('email/recupassword');
     }
 
-    public function sendmail()
-    {
+    public function sendmail() {
         $this->form_validation->set_rules('email', 'email', 'required');
         if ($this->form_validation->run() == false) {
             $this->index();
@@ -59,4 +57,5 @@ class Recupassword extends CI_Controller
             }
         }
     }
+
 }

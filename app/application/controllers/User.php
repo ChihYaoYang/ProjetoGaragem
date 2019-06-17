@@ -1,30 +1,31 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
-class User extends CI_Controller
-{
-    public function __construct()
-    {
+
+class User extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->model('Usuario_model');
         $this->Usuario_model->verificaLogin();
     }
-    public function index()
-    {
+
+    public function index() {
         $data['user'] = $this->Usuario_model->getAll();
         $this->load->view('includes/header');
         $this->load->view('user/lista', $data);
         $this->load->view('includes/footer');
     }
+
     //Update
-    public function alteracao($id)
-    {
+    public function alteracao($id) {
         $data['user'] = $this->Usuario_model->getId($id);
         $this->load->view('includes/header');
         $this->load->view('user/alterar', $data);
         $this->load->view('includes/footer');
     }
-    public function alterar($id)
-    {
+
+    public function alterar($id) {
         if ($id > 0) {
             $this->form_validation->set_rules('nome', 'nome', 'required|max_length[50]');
             $this->form_validation->set_rules('senha', 'senha', 'required|min_length[6]|max_length[20]');
@@ -48,4 +49,5 @@ class User extends CI_Controller
             redirect('User/index');
         }
     }
+
 }

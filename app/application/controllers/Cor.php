@@ -19,6 +19,7 @@ class Cor extends CI_Controller {
         $this->load->view('cor/lista', $data);
         $this->load->view('includes/footer');
     }
+
     //Insert
     public function cadastro() {
         $this->load->view('includes/header');

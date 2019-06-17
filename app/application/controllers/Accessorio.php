@@ -1,32 +1,33 @@
 <?php
+
 defined('BASEPATH') or exit('No direct script access allowed');
-class Accessorio extends CI_Controller
-{
-    public function __construct()
-    {
+
+class Accessorio extends CI_Controller {
+
+    public function __construct() {
         parent::__construct();
         $this->load->model('Accessorio_model');
         $this->load->model('Usuario_model');
         $this->Usuario_model->verificaLogin();
         $this->Usuario_model->checkSession();
     }
-    public function index()
-    {
+
+    public function index() {
         $data['access'] = $this->Accessorio_model->getAll();
         $data['total'] = $this->Accessorio_model->countrow();
         $this->load->view('includes/header');
         $this->load->view('accessorio/lista', $data);
         $this->load->view('includes/footer');
     }
+
     //Insert
-    public function cadastro()
-    {
+    public function cadastro() {
         $this->load->view('includes/header');
         $this->load->view('accessorio/cadastro');
         $this->load->view('includes/footer');
     }
-    public function cadastrar()
-    {
+
+    public function cadastrar() {
         $this->form_validation->set_rules('descricao', 'descrição', 'required|is_unique[tb_acessorio.descricao]');
         $this->form_validation->set_rules('preco', 'preço', 'required|max_length[13]');
         if ($this->form_validation->run() == false) {
@@ -63,9 +64,9 @@ class Accessorio extends CI_Controller
             }
         }
     }
+
     //Delete
-    public function deletar($id)
-    {
+    public function deletar($id) {
         $get = $this->Accessorio_model->getId($id);
         //Valida
         if ($id > 0) {
@@ -78,16 +79,16 @@ class Accessorio extends CI_Controller
         }
         redirect('Accessorio/index');
     }
+
     //Update
-    public function alteracao($id)
-    {
+    public function alteracao($id) {
         $data['access'] = $this->Accessorio_model->getId($id);
         $this->load->view('includes/header');
         $this->load->view('accessorio/alterar', $data);
         $this->load->view('includes/footer');
     }
-    public function alterar($id)
-    {
+
+    public function alterar($id) {
         if ($id > 0) {
             $this->form_validation->set_rules('descricao', 'descrição', 'required');
             $this->form_validation->set_rules('preco', 'preço', 'required|max_length[13]');
@@ -129,4 +130,5 @@ class Accessorio extends CI_Controller
             }
         }
     }
+
 }

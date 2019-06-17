@@ -22,6 +22,7 @@ class Pedido_model extends CI_model {
         $query = $this->db->get();
         return $query->result();
     }
+
     //Veículo
     public function getAllId($id) {
         $this->db->select('tb_veiculo.*, tb_marca.nome as marca, tb_cor.descricao as cor, tb_modelo.nome as modelo');
@@ -45,4 +46,5 @@ class Pedido_model extends CI_model {
         $this->db->insert('tb_pedido', $data);
         return $this->db->affected_rows();
     }
+
 }
