@@ -13,7 +13,7 @@ class Pedido_model extends CI_model {
     }
 
     public function getAllCompra() {
-        $this->db->select('tb_pedido.*, tb_formapagamento.descricao, tb_usuario.nome as username, tb_veiculo.imagem as veiculo, tb_acessorio.imagem as acessorio');
+        $this->db->select('tb_pedido.*, tb_formapagamento.descricao, tb_usuario.nome as username, tb_veiculo.imagem as veiculo, tb_acessorio.imagem as acessorio, tb_veiculo.preco as precov, tb_acessorio.preco as precoa');
         $this->db->from('tb_pedido');
         $this->db->join('tb_formapagamento', 'tb_formapagamento.id=tb_pedido.cd_formapagamento', 'inner');
         $this->db->join('tb_usuario', 'tb_usuario.id=tb_pedido.cd_usuario', 'inner');

@@ -24,6 +24,7 @@
                             <th scope="col">RG</th>
                             <th scope="col">Telefone</th>
                             <th scope="col">Hora</th>
+                            <th scope="col">Preço</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,11 @@
                                     echo '<td>' . $c->rg . '</td>';
                                     echo '<td>' . $c->telefone . '</td>';
                                     echo '<td>' . $c->data_pedido . '</td>';
+                                    if ($c->precov == NULL) {
+                                        echo '<td>R$ ' . number_format($c->precoa, 2, ',', '.') . '</td>';
+                                    } else {
+                                        echo '<td>R$ ' . number_format($c->precov, 2, ',', '.') . '</td>';
+                                    }
                                 }
                             }
                         } else {
