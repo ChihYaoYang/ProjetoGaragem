@@ -1,4 +1,4 @@
-<div class="container mt-3">
+<div class="container mt-3" style="min-height: 350px">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
