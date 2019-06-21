@@ -31,7 +31,7 @@
                         <?php
                         if (count($compra) > 0) {
                             foreach ($compra as $c) {
-                                if ($this->session->userdata('idUsuario') == $c->cd_usuario) {
+                                if ($this->session->userdata('idUsuario') == $c->cd_usuario || $this->session->userdata('nome') == 'admin') {
                                     echo '<tr class="text-center">';
                                     echo '<td>' . $c->descricao . '</td>';
                                     if ($c->veiculo != NULL) {

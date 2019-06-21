@@ -1,20 +1,24 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Usuario extends CI_Controller {
+class Usuario extends CI_Controller
+{
 
-    public function index() {
+    public function index()
+    {
         $this->load->view('login/login');
     }
 
     //Construct
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Usuario_model');
     }
 
-    public function login() {
+    public function login()
+    {
         //Validation formulario se cadastra ou não
         $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('senha', 'senha', 'required');
@@ -24,7 +28,8 @@ class Usuario extends CI_Controller {
             //Busca no banco de dados através do Model saber se existe
             //o usuario com este email e senha recebidos por POST
             $usuario = $this->Usuario_model->getUsuario(
-                    $this->input->post('email'), $this->input->post('senha')
+                $this->input->post('email'),
+                $this->input->post('senha')
             );
             //valida se retornou algum registro, quer dizer que o usuario é existente
             if ($usuario) {
@@ -34,6 +39,7 @@ class Usuario extends CI_Controller {
                     'nome' => $usuario->nome,
                     'email' => $usuario->email,
                     'status' => $usuario->status,
+                    'ativacao' => $usuario->ativacao,
                     'logado' => true
                 );
                 //Mandamos o codeignitter salvar na sessão os dados do usuário
@@ -41,7 +47,14 @@ class Usuario extends CI_Controller {
                 //set_flashdata, pois ele salva dados permanentes enquanto durar a sessão ...
                 $this->session->set_userdata($data);
                 //abre a pagina principal do sistema
-                redirect(base_url());
+                if ($this->session->userdata('ativacao') == 1) {
+                    $this->session->set_flashdata('mensagem', '<div class="alert alert-success"> Welcome to Vend Car <b>' . $this->session->userdata('nome') . '</b><button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">&times;</span></button></div>');
+                    redirect(base_url());
+                } else {
+                    $this->session->set_flashdata('mensagem', '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Please Activate Your Account *_*</div>');
+                    //redireciona obrigando o login...
+                    redirect(base_url() . 'Usuario/login');
+                }
             } else {
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-warning"><i class="fas fa-exclamation-triangle"></i> Usuário e Senha Incorretos *_*</div>');
                 //redireciona obrigando o login...
@@ -51,7 +64,8 @@ class Usuario extends CI_Controller {
     }
 
     //Insert
-    public function cadastrar() {
+    public function cadastrar()
+    {
         $this->form_validation->set_rules('nome', 'nome', 'required|is_unique[tb_usuario.nome]|max_length[50]');
         $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|is_unique[tb_usuario.email]');
         $this->form_validation->set_rules('senha', 'senha', 'required|min_length[6]|max_length[20]');
@@ -65,24 +79,58 @@ class Usuario extends CI_Controller {
                 'email' => $this->input->post('email'),
                 'senha' => $this->input->post('senha')
             );
-            //Chama método e passa $data ja valida se teve linha affectados
-            if ($this->Usuario_model->insert($data)) {
-                $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Cadastrado com Sucesso ! ! !</div>');
+            //Send Email
+            $this->load->library("email");
+            $config = array(
+                'mailtype' => "html",
+            );
+            $this->email->initialize($config);
+            //Insert de dados
+            $id = $this->Usuario_model->insert($data);
+            //Mensagem
+            $message = "
+                    <html>
+                    <head>
+                        <title>Verification Code</title>
+                    </head>
+                    <body>
+                        <h2>Thank you for Registering.</h2>
+                        <p>Your Account:</p>
+                        <p>Email: " . $this->input->post('email') . "</p>
+                        <p>Password: " . $this->input->post('senha') . "</p>
+                        <p>Please click the link below to activate your account.</p>
+                        <h4><a href='" . base_url('Usuario/activation/' . $id) . "'>Activate My Account</a></h4>
+                    </body>
+                    </html>
+                    ";
+            $this->email->from('chih.yang@aluno.sc.senac.br', 'Admin');
+            $this->email->to($this->input->post('email'));
+            $this->email->subject('E-mail de verificação de cadastro');
+            $this->email->message($message);
+            if ($this->email->send()) {
+                $this->session->set_flashdata('mensagem', '<div class="alert alert-success"><i class="fas fa-check"></i> Cadastrado com Sucesso Check Seu Email para Ativa Sua Conta! ! !</div>');
                 redirect('Usuario/login');
             } else {
+                show_error($this->email->print_debugger());
                 $this->session->set_flashdata('mensagem', '<div class="alert alert-danger"><i class="fas fa-times"></i> Erro ao Cadastrar *_*</div>');
                 redirect('Usuario/cadastrar');
             }
         }
     }
-
+    //Ativação
+    public function activation($id)
+    {
+        $this->Usuario_model->getId($id);
+        $data = array(
+            'ativacao' => 1,
+        );
+        $this->Usuario_model->activate($data, $id);
+    }
     //Método responsavel por fazer o logout do sistema destruindo a sessão do usuário
-    public function sair() {
+    public function sair()
+    {
         //Apaga todo conteúdo da sessão do usuario
         $this->session->sess_destroy();
         redirect(base_url());
     }
-
 }
-
-?>
