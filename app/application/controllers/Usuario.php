@@ -82,7 +82,7 @@ class Usuario extends CI_Controller
             //Send Email
             $this->load->library("email");
             $config = array(
-                'mailtype' => "html",
+                'mailtype' => 'html',
             );
             $this->email->initialize($config);
             //Insert de dados e no model usa retunr insert_id return valor id e passa o valor para activation
@@ -95,7 +95,7 @@ class Usuario extends CI_Controller
                         <p>Email: " . $this->input->post('email') . "</p>
                         <p>Password: " . $this->input->post('senha') . "</p>
                         <p>Por favor, Clique No link abaixo para ativar sua conta.</p>
-                        <h4><a href='" . base_url('Usuario/activation/' . $id) . "'>Activate My Account</a></h4>
+                        <h4><a href=" . base_url('Usuario/activation/' . $id) . ">Activate My Account</a></h4>
                     ";
             $this->email->from('chih.yang@aluno.sc.senac.br', 'Admin');
             $this->email->to($this->input->post('email'));
