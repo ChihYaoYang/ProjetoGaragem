@@ -63,13 +63,12 @@ class Usuario_model extends CI_Model {
     public function insert($data = array()) {
         $data['senha'] = sha1($data['senha'] . self::password);
         $this->db->insert(self::table, $data);
-        return $this->db->affected_rows();
+        return $this->db->insert_id(); //return valor id
     }
     //Ativação
     public function activate($data, $id){
         $this->db->where('id', $id);
-        $this->db->update(self::table, $data);
-        return $this->db->affected_rows();
+        return $this->db->update(self::table, $data);
 	}
     //Método que valida na sessão se o usuário esta logado
     public function verificaLogin() {

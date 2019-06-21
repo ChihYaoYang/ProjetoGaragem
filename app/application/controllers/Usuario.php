@@ -85,23 +85,17 @@ class Usuario extends CI_Controller
                 'mailtype' => "html",
             );
             $this->email->initialize($config);
-            //Insert de dados
+            //Insert de dados e no model usa retunr insert_id return valor id e passa o valor para activation
             $id = $this->Usuario_model->insert($data);
             //Mensagem
             $message = "
-                    <html>
-                    <head>
-                        <title>Verification Code</title>
-                    </head>
-                    <body>
                         <h2>Thank you for Registering.</h2>
                         <p>Your Account:</p>
+                        <p>Nome: " . $this->input->post('nome') . "</p>
                         <p>Email: " . $this->input->post('email') . "</p>
                         <p>Password: " . $this->input->post('senha') . "</p>
-                        <p>Please click the link below to activate your account.</p>
+                        <p>Por favor, Clique No link abaixo para ativar sua conta.</p>
                         <h4><a href='" . base_url('Usuario/activation/' . $id) . "'>Activate My Account</a></h4>
-                    </body>
-                    </html>
                     ";
             $this->email->from('chih.yang@aluno.sc.senac.br', 'Admin');
             $this->email->to($this->input->post('email'));
@@ -120,11 +114,13 @@ class Usuario extends CI_Controller
     //Ativação
     public function activation($id)
     {
-        $this->Usuario_model->getId($id);
         $data = array(
             'ativacao' => 1,
         );
         $this->Usuario_model->activate($data, $id);
+        $this->load->view('includes/header');
+        $this->load->view('login/ativacao');
+        $this->load->view('includes/footer');
     }
     //Método responsavel por fazer o logout do sistema destruindo a sessão do usuário
     public function sair()
