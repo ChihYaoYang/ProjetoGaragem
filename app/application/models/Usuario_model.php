@@ -65,11 +65,13 @@ class Usuario_model extends CI_Model {
         $this->db->insert(self::table, $data);
         return $this->db->insert_id(); //return valor id
     }
+
     //Ativação
-    public function activate($data, $id){
+    public function activate($data, $id) {
         $this->db->where('id', $id);
         return $this->db->update(self::table, $data);
-	}
+    }
+
     //Método que valida na sessão se o usuário esta logado
     public function verificaLogin() {
         //resgata na sessão o status logado e o id do usuario
