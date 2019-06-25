@@ -13,7 +13,7 @@
         <?php
         foreach ($acess as $ac) {
             echo ' <div class="col-md-4">';
-            echo '<div class="card mb-4">';
+            echo '<div class="card shadow p-3 mb-5 bg-white rounded">';
             echo '<img src="' . base_url('public/uploads/' . $ac->imagem) . '" class="card-img-top" height="250px">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">' . $ac->descricao . '</h5>';

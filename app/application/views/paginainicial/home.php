@@ -39,7 +39,7 @@ echo ($this->session->flashdata('mensagem')) ? $this->session->flashdata('mensag
         if ($i++ == 3)
             break;
         echo '<div class="col-md-4">';
-        echo '<div class="card mb-4">';
+        echo '<div class="card shadow p-3 mb-5 bg-white rounded">';
         echo '<img src="' . base_url('public/uploads/' . $v->imagem) . '" class="card-img-top" height="250px">';
         echo '<div class="card-body">';
         echo '<h5 class="card-title">Modelo: ' . $v->modelo . '</h5>';

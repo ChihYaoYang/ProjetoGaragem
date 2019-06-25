@@ -14,7 +14,7 @@
         foreach ($veiculo as $v) {
             echo '<div class="col-md-4">';
             echo '<div class="card-deck mb-4">';
-            echo '<div class="card">';
+            echo '<div class="card shadow p-3 mb-5 bg-white rounded">';
             echo '<img class="card-img-top" height="250px" src="' . base_url('public/uploads/' . $v->imagem) . '">';
             echo '<div class="card-body">';
             echo '<h5 class="card-title">Modelo: ' . $v->modelo . '</h5>';
