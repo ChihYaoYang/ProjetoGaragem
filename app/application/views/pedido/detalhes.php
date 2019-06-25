@@ -17,4 +17,10 @@
             </div>
         </div>
     </div>
+    <div class="col-md-8">
+        <p class="card-text">Descrição: <?= $veiculo->descricao ?> </p>
+        <?php
+        echo '<a href="' . base_url('Pedido/cadastrar/' . $veiculo->id) . '" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
+        ?>
+    </div>
 </div>

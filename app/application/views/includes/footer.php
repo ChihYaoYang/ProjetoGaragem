@@ -71,7 +71,7 @@
 <!--Confirmation-->
 <script type='text/javascript' src="<?php echo base_url('/assets/JS/confirmation.js'); ?>"></script>
 <!--TextArea-->
-<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type='text/javascript' src="<?php echo base_url('/assets/JS/textarea.js'); ?>"></script>
 <!--Jquery-->
 <script type='text/javascript' src="<?php echo base_url('/assets/JS/jquery.js'); ?>"></script>
 <!--Mascara-->
