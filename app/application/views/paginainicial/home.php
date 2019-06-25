@@ -48,7 +48,8 @@ echo ($this->session->flashdata('mensagem')) ? $this->session->flashdata('mensag
         echo '<p class="card-text">R$: ' . number_format($v->preco, 2, ',', '.') . '</p>';
         echo '<p class="card-text">Ano: ' . $v->ano . '</p>';
         if ($this->session->userdata('status') == 1 || $this->session->userdata('status') == 2) {
-            echo '<a href="' . base_url('Pedido/cadastrar/' . $v->id) . '" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Comprar</a>';
+            echo '<a href="' . base_url('Pedido/cadastrar/' . $v->id) . '" class="btn btn-primary mr-2"><i class="fas fa-shopping-cart"></i> Comprar</a>';
+            echo '<a href="' . base_url('Pedido/detalhes/' . $v->id) . '" class="btn btn-info"><i class="fas fa-info"></i> Detalhes</a>';
         }
         echo '</div>';
         echo '</div>';

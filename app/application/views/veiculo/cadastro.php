@@ -100,6 +100,9 @@
                         </div>
                         <hr>
                         <img src="" id="view" name="imagemns" width="100" style="max-height:100px" /> <br><br>
+                        <!--Campo text area-->
+                        <textarea id="texto" name="texto">Digite seu texto aqui</textarea>
+                        <br>
                         <!--Button-->
                         <div class="text-center">
                             <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Enviar</button>

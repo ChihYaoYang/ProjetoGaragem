@@ -106,6 +106,9 @@
                         to
                         <img src="" id="view" name="imagemns" width="100" style="max-height:100px" />
                         <p>
+                            <!--Campo text area-->
+                            <textarea id="texto" name="texto"><?= (isset($veiculo)) ? $veiculo->descricao : ''; ?></textarea>
+                            <br>
                             <!--Button-->
                         <div class="text-center">
                             <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Enviar</button>

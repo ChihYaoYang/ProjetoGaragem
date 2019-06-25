@@ -39,6 +39,7 @@ class Veiculo extends CI_Controller {
         $this->form_validation->set_rules('id_cor', 'cor', 'required');
         $this->form_validation->set_rules('preco', 'preço', 'required|max_length[13]');
         $this->form_validation->set_rules('ano', 'ano', 'required');
+        $this->form_validation->set_rules('texto', 'texto', 'required');
         if ($this->form_validation->run() == false) {
             $this->cadastro();
         } else {
@@ -47,7 +48,8 @@ class Veiculo extends CI_Controller {
                 'cd_marca' => $this->input->post('id_marca'),
                 'cd_cor' => $this->input->post('id_cor'),
                 'preco' => str_replace(',', '.', str_replace('.', '', $this->input->post('preco'))),
-                'ano' => $this->input->post('ano')
+                'ano' => $this->input->post('ano'),
+                'descricao' => $this->input->post('texto')
             );
             //IMG
             if (!empty($_FILES['imagem']['name']) || $_FILES['imagem']['name'] == '') {
@@ -110,6 +112,7 @@ class Veiculo extends CI_Controller {
             $this->form_validation->set_rules('id_cor', 'cor', 'required');
             $this->form_validation->set_rules('preco', 'preço', 'required|max_length[13]');
             $this->form_validation->set_rules('ano', 'ano', 'required');
+            $this->form_validation->set_rules('texto', 'texto', 'required');
             if ($this->form_validation->run() == false) {
                 $this->alteracao($id);
             } else {
@@ -118,7 +121,8 @@ class Veiculo extends CI_Controller {
                     'cd_marca' => $this->input->post('id_marca'),
                     'cd_cor' => $this->input->post('id_cor'),
                     'preco' => str_replace(',', '.', str_replace('.', '', $this->input->post('preco'))),
-                    'ano' => $this->input->post('ano')
+                    'ano' => $this->input->post('ano'),
+                    'descricao' => $this->input->post('texto')
                 );
                 //IMG
                 if (!empty($_FILES['imagem']['name'])) {

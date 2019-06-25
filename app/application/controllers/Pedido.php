@@ -22,6 +22,14 @@ class Pedido extends CI_Controller {
         $this->load->view('includes/footer');
     }
 
+    //Lista de detalhes
+    public function detalhes($id) {
+        $data['veiculo'] = $this->Pedido_model->getAllId($id);
+        $this->load->view('includes/header');
+        $this->load->view('pedido/detalhes', $data);
+        $this->load->view('includes/footer');
+    }
+
     public function cadastrar($id) {
         if ($id > 0) {
             $this->form_validation->set_rules('paga', 'pagamento', 'required');
