@@ -108,7 +108,7 @@
                         <p>
                             <br>
                             <!--Campo text area-->
-                            <textarea id="texto" name="texto"><?= (isset($veiculo)) ? $veiculo->descricao : ''; ?></textarea>
+                            <textarea id="texto" name="texto" placeholder="Digite seu texto aqui . . ."><?= (isset($veiculo)) ? $veiculo->descricao : ''; ?></textarea>
                             <br>
                             <!--Button-->
                             <div class="text-center">

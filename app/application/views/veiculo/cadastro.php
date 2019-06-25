@@ -101,7 +101,7 @@
                         <hr>
                         <img src="" id="view" name="imagemns" width="100" style="max-height:100px" /> <br><br>
                         <!--Campo text area-->
-                        <textarea id="texto" name="texto">Digite seu texto aqui</textarea>
+                        <textarea id="texto" name="texto" placeholder="Digite seu texto aqui . . ."></textarea>
                         <br>
                         <!--Button-->
                         <div class="text-center">

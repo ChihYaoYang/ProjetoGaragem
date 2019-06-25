@@ -2,19 +2,23 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Usuario extends CI_Controller {
+class Usuario extends CI_Controller
+{
 
-    public function index() {
+    public function index()
+    {
         $this->load->view('login/login');
     }
 
     //Construct
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->load->model('Usuario_model');
     }
 
-    public function login() {
+    public function login()
+    {
         //Validation formulario se cadastra ou não
         $this->form_validation->set_rules('email', 'email', 'required');
         $this->form_validation->set_rules('senha', 'senha', 'required');
@@ -24,7 +28,8 @@ class Usuario extends CI_Controller {
             //Busca no banco de dados através do Model saber se existe
             //o usuario com este email e senha recebidos por POST
             $usuario = $this->Usuario_model->getUsuario(
-                    $this->input->post('email'), $this->input->post('senha')
+                $this->input->post('email'),
+                $this->input->post('senha')
             );
             //valida se retornou algum registro, quer dizer que o usuario é existente
             if ($usuario) {
@@ -59,7 +64,8 @@ class Usuario extends CI_Controller {
     }
 
     //Insert
-    public function cadastrar() {
+    public function cadastrar()
+    {
         $this->form_validation->set_rules('nome', 'nome', 'required|is_unique[tb_usuario.nome]|max_length[50]');
         $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email|is_unique[tb_usuario.email]');
         $this->form_validation->set_rules('senha', 'senha', 'required|min_length[6]|max_length[20]');
@@ -105,21 +111,25 @@ class Usuario extends CI_Controller {
     }
 
     //Ativação
-    public function activation($id) {
-        $data = array(
-            'ativacao' => 1,
-        );
-        $this->Usuario_model->activate($data, $id);
-        $this->load->view('includes/header');
-        $this->load->view('login/ativacao');
-        $this->load->view('includes/footer');
+    public function activation($id)
+    {
+        if ($id > 0) {
+            $data = array(
+                'ativacao' => 1,
+            );
+            $this->Usuario_model->activate($data, $id);
+            $this->session->sess_destroy();
+            $this->load->view('includes/header');
+            $this->load->view('login/ativacao');
+            $this->load->view('includes/footer');
+        }
     }
 
     //Método responsavel por fazer o logout do sistema destruindo a sessão do usuário
-    public function sair() {
+    public function sair()
+    {
         //Apaga todo conteúdo da sessão do usuario
         $this->session->sess_destroy();
         redirect(base_url());
     }
-
 }
