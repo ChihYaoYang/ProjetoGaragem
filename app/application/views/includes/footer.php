@@ -39,7 +39,10 @@
         <div class="row">
             <div class="offset-2 col-md-4">
                 <h5 class="text-uppercase text-light">VendCar</h5>
-                <p class="text-light">Criado pelo aluno Ryan.</p>
+                <p class="text-light"><i class="fas fa-phone"></i> (00) 0000-0000</p>
+                <p class="text-light"><i class="fas fa-envelope"></i> chih.yang@aluno.sc.senac.br</p>
+                <p class="text-light"><i class="fas fa-map-marker-alt"></i> Rua Wireframe 325</p>
+                <p class="text-light"><i class="fas fa-clock"></i> Seg ~ Sex: 22:00 ~ 5:00</p>
             </div>
             <div class="offset-1 col-md-5">
                 <h5 class="text-uppercase text-light">Menu</h5>
